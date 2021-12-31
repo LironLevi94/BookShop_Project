@@ -15,8 +15,9 @@ public class BookShop extends javax.swing.JFrame{
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new Splash().setVisible(true);
-        new Login().setVisible(true);
+        //new Splash().setVisible(true);
+        //new Login().setVisible(true);
+        new Users().setVisible(true);
     }
     
 }
