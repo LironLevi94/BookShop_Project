@@ -3,22 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package bookshop;
-
 import java.io.*;
-
 /**
  *
  * @author liron
  */
-public class User implements Serializable
+public class AdminUser extends User 
 {
-    protected String UserName;
-    protected String Password;
+    private int permmision;
 
-    public User(String UserName, String Password) { //constractor
-        this.UserName = UserName;
-        this.Password = Password;
+    public AdminUser(int permmision, String UserName, String Password) {
+        super(UserName, Password);
+        this.permmision = 1;
     }
+
+    public int getPermmision() {
+        return permmision;
+    }
+
 
     public String getUserName() {
         return UserName;
@@ -35,6 +37,9 @@ public class User implements Serializable
     public void setPassword(String Password) {
         this.Password = Password;
     }
-    
-}
 
+
+
+ 
+            
+}
