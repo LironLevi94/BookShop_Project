@@ -10,8 +10,8 @@ import java.io.*;
  */
 public class Book extends Product
 {
-    private String Title;
-    private String Author;
+    protected String Title;
+    protected String Author;
 
     public Book(String Title, String Author, int ID, int Price, int Quantity) {
         super(ID, Price, Quantity);
