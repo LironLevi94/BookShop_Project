@@ -8,13 +8,15 @@ package bookshop;
  *
  * @author liron
  */
-public class BookShop {
+public class BookShop extends javax.swing.JFrame{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        new Splash().setVisible(true);
+        new Login().setVisible(true);
     }
     
 }
