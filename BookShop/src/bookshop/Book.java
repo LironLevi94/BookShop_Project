@@ -8,11 +8,16 @@ import java.io.*;
  *
  * @author liron
  */
-public class Book implements Serializable
+public class Book extends Product
 {
     private String Title;
     private String Author;
 
+    public Book(String Title, String Author, int ID, int Price, int Quantity) {
+        super(ID, Price, Quantity);
+        this.Title = Title;
+        this.Author = Author;
+    }
     public String getTitle() {
         return Title;
     }
