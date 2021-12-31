@@ -12,7 +12,7 @@ public class SellerUser extends User
 {
     private ManageSellerAccount Seller;
 
-    public SellerUser(ManageSellerAccount Seller, String UserName, String Password) { //constractor
+    public SellerUser(ManageSellerAccount Seller, String UserName, String Password) { //constructor
         super(UserName, Password);
         this.Seller = Seller;
     }

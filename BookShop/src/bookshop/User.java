@@ -10,12 +10,12 @@ import java.io.*;
  *
  * @author liron
  */
-public class User implements Serializable
+public abstract class User implements Serializable
 {
     protected String UserName;
     protected String Password;
 
-    public User(String UserName, String Password) { //constractor
+    public User(String UserName, String Password) { //constructor
         this.UserName = UserName;
         this.Password = Password;
     }

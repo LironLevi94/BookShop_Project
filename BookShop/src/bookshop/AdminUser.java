@@ -8,11 +8,11 @@ import java.io.*;
  *
  * @author liron
  */
-public class AdminUser extends User 
+public class AdminUser extends User
 {
     private int permmision;
 
-    public AdminUser(int permmision, String UserName, String Password) {
+    public AdminUser(int permmision, String UserName, String Password) { //constructor
         super(UserName, Password);
         this.permmision = 1;
     }
