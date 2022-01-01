@@ -216,6 +216,11 @@ public class Books extends javax.swing.JFrame {
         ResetBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ResetBtn.setForeground(new java.awt.Color(255, 255, 255));
         ResetBtn.setText("Reset");
+        ResetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResetBtnMouseClicked(evt);
+            }
+        });
         ResetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetBtnActionPerformed(evt);
@@ -234,7 +239,7 @@ public class Books extends javax.swing.JFrame {
                 "ID", "Title", "Author", "Category", "Quantity", "Price"
             }
         ));
-        BooksTable.setSelectionBackground(new java.awt.Color(156, 255, 230));
+        BooksTable.setSelectionBackground(new java.awt.Color(195, 247, 234));
         jScrollPane1.setViewportView(BooksTable);
 
         jButton6.setBackground(new java.awt.Color(102, 51, 255));
@@ -311,7 +316,7 @@ public class Books extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel12)
-                        .addGap(337, 337, 337)
+                        .addGap(361, 361, 361)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -455,6 +460,17 @@ public class Books extends javax.swing.JFrame {
         }
     }
     
+    //Reset Cells
+    private void Reset()
+    {
+        BookIdTb.setText("");
+        NameTb.setText("");
+        AuthorTb.setText("");
+        CatCb.setSelectedIndex(0);
+        QuantityTb.setText("");
+        PriceTb.setText("");
+    }
+    
     //Add Book Button
     private void SaveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBtnMouseClicked
         if(BookIdTb.getText().isEmpty() || NameTb.getText().isEmpty() || AuthorTb.getText().isEmpty() || CatCb.getSelectedIndex() == -1 || QuantityTb.getText().isEmpty() || PriceTb.getText().isEmpty())//Check if the fields are empty
@@ -476,7 +492,7 @@ public class Books extends javax.swing.JFrame {
                 int row = add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Book Added"); //Added Msg
                 DisplayBooks(); //refresh the Books Table - add the new book
-                //Con.close(); //close the connection
+                Reset(); // resert cells after added book
             } 
             catch (Exception e) 
             {
@@ -484,6 +500,11 @@ public class Books extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_SaveBtnMouseClicked
+
+    //Reset Cells Button
+    private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
+        Reset();
+    }//GEN-LAST:event_ResetBtnMouseClicked
 
     /**
      * @param args the command line arguments
