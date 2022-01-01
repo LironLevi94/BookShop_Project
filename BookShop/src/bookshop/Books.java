@@ -580,7 +580,7 @@ public class Books extends javax.swing.JFrame {
     private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
         if(BookIdTb.getText().isEmpty() || NameTb.getText().isEmpty() || AuthorTb.getText().isEmpty() || CatCb.getSelectedIndex() == -1 || QuantityTb.getText().isEmpty() || PriceTb.getText().isEmpty())//Check if the fields are empty
         {
-            JOptionPane.showMessageDialog(this, "Missing Information - Select Book to Edit and change cells");//error msg
+            JOptionPane.showMessageDialog(this, "Missing Information - Select Book to Edit");//error msg
         }
         else
         {

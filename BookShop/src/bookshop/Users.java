@@ -101,6 +101,11 @@ public class Users extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 51, 255));
         jLabel5.setText("Books");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookshop/books.png"))); // NOI18N
 
@@ -562,7 +567,7 @@ public class Users extends javax.swing.JFrame {
     private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
         if(UIdTb.getText().isEmpty() || UNameTb.getText().isEmpty() || PhoneTb.getText().isEmpty() || AddressTb.getText().isEmpty() || PasswordTb.getText().isEmpty())//Check if the fields are empty
         {
-            JOptionPane.showMessageDialog(this, "Missing Information - Select User to Edit and change cells");//error msg
+            JOptionPane.showMessageDialog(this, "Missing Information - Select User to Edit");//error msg
 
         }
         else
@@ -584,6 +589,12 @@ public class Users extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_EditBtnMouseClicked
+
+    //Books Button
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        new Books().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
