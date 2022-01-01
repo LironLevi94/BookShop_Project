@@ -240,6 +240,11 @@ public class Users extends javax.swing.JFrame {
         jScrollPane1.setViewportView(UsersTable);
 
         LogoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookshop/back.png"))); // NOI18N
+        LogoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutBtnMouseClicked(evt);
+            }
+        });
 
         PrintBtn.setBackground(new java.awt.Color(102, 51, 255));
         PrintBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -476,6 +481,12 @@ public class Users extends javax.swing.JFrame {
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
         Reset();
     }//GEN-LAST:event_ResetBtnMouseClicked
+
+    //Logout Button
+    private void LogoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutBtnMouseClicked
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutBtnMouseClicked
 
     /**
      * @param args the command line arguments
