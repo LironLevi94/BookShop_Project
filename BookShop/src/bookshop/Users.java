@@ -182,6 +182,11 @@ public class Users extends javax.swing.JFrame {
         EditBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EditBtn.setForeground(new java.awt.Color(255, 255, 255));
         EditBtn.setText("Edit");
+        EditBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditBtnMouseClicked(evt);
+            }
+        });
         EditBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditBtnActionPerformed(evt);
@@ -552,6 +557,33 @@ public class Users extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_DeleteBtnMouseClicked
+
+    //Edit User Button
+    private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
+        if(UIdTb.getText().isEmpty() || UNameTb.getText().isEmpty() || PhoneTb.getText().isEmpty() || AddressTb.getText().isEmpty() || PasswordTb.getText().isEmpty())//Check if the fields are empty
+        {
+            JOptionPane.showMessageDialog(this, "Missing Information - Select User to Edit and change cells");//error msg
+
+        }
+        else
+        {
+            try 
+            {
+                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String UId = UIdTb.getText();
+                String Query = "Update User1.UserTbl set UName='"+UNameTb.getText()+"',UPhone='"+PhoneTb.getText()+"',UAddress='"+AddressTb.getText()+"',UPassword='"+PasswordTb.getText()+"' where UID="+UId;
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);
+                JOptionPane.showMessageDialog(this, "User Updated"); //Added Msg
+                DisplayUsers(); //refresh the Books Table - add the new book
+                Reset(); // resert cells after added book
+            } 
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_EditBtnMouseClicked
 
     /**
      * @param args the command line arguments
