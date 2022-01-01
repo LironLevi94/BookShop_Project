@@ -221,9 +221,9 @@ public class Login extends javax.swing.JFrame {
     
     //Login Button
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
-        if(RoleCb .getSelectedIndex()== -1) //no selected
+        if(UNameTb.getText().isEmpty() || PasswordTb.getText().isEmpty()) //no selected
         {
-            JOptionPane.showMessageDialog(this, "Select The Role"); //Added Msg
+            JOptionPane.showMessageDialog(this, "Enter the Username and Password"); //Added Msg
         }
         else if(RoleCb .getSelectedIndex()== 1) // Seller account
         {
