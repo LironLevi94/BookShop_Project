@@ -250,6 +250,11 @@ public class Users extends javax.swing.JFrame {
         PrintBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PrintBtn.setForeground(new java.awt.Color(255, 255, 255));
         PrintBtn.setText("Print");
+        PrintBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrintBtnMouseClicked(evt);
+            }
+        });
         PrintBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrintBtnActionPerformed(evt);
@@ -487,6 +492,18 @@ public class Users extends javax.swing.JFrame {
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoutBtnMouseClicked
+
+    //Print Users List Button
+    private void PrintBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintBtnMouseClicked
+                try 
+        {
+            UsersTable.print(); 
+        } 
+        catch (Exception e) 
+        {
+            
+        }
+    }//GEN-LAST:event_PrintBtnMouseClicked
 
     /**
      * @param args the command line arguments
