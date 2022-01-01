@@ -7,6 +7,7 @@ package bookshop;
 import javax.swing.JOptionPane; //for the massages
 import java.sql.Connection; //to the DB connection
 import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -245,6 +246,11 @@ public class Books extends javax.swing.JFrame {
             }
         ));
         BooksTable.setSelectionBackground(new java.awt.Color(195, 247, 234));
+        BooksTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BooksTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(BooksTable);
 
         jButton6.setBackground(new java.awt.Color(102, 51, 255));
@@ -515,7 +521,7 @@ public class Books extends javax.swing.JFrame {
     private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
         if(BookIdTb.getText().isEmpty() )//Check if the fields are empty
         {
-            JOptionPane.showMessageDialog(this, "Missing Information - add Book ID to Delete");//error msg
+            JOptionPane.showMessageDialog(this, "Missing Information - Select Book to Delete");//error msg
         }
         else
         {
@@ -536,6 +542,18 @@ public class Books extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_DeleteBtnMouseClicked
+
+    //the Book Table clicked
+    private void BooksTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BooksTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel)BooksTable.getModel();
+        int MyIndex = BooksTable.getSelectedRow();
+        BookIdTb.setText(model.getValueAt(MyIndex, 0).toString());
+        NameTb.setText(model.getValueAt(MyIndex, 1).toString());
+        AuthorTb.setText(model.getValueAt(MyIndex, 2).toString());
+        CatCb.setSelectedItem(model.getValueAt(MyIndex, 3).toString());
+        QuantityTb.setText(model.getValueAt(MyIndex, 4).toString());
+        PriceTb.setText(model.getValueAt(MyIndex, 5).toString());
+    }//GEN-LAST:event_BooksTableMouseClicked
 
     /**
      * @param args the command line arguments
