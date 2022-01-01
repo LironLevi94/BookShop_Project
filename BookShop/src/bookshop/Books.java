@@ -255,6 +255,7 @@ public class Books extends javax.swing.JFrame {
                 "ID", "Title", "Author", "Category", "Quantity", "Price"
             }
         ));
+        BooksTable.setRowHeight(25);
         BooksTable.setSelectionBackground(new java.awt.Color(195, 247, 234));
         BooksTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
