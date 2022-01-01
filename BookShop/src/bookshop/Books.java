@@ -206,6 +206,11 @@ public class Books extends javax.swing.JFrame {
         DeleteBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         DeleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         DeleteBtn.setText("Delete");
+        DeleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteBtnMouseClicked(evt);
+            }
+        });
         DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteBtnActionPerformed(evt);
@@ -505,6 +510,32 @@ public class Books extends javax.swing.JFrame {
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
         Reset();
     }//GEN-LAST:event_ResetBtnMouseClicked
+
+    //Delete Book Button
+    private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
+        if(BookIdTb.getText().isEmpty() )//Check if the fields are empty
+        {
+            JOptionPane.showMessageDialog(this, "Missing Information - add Book ID to Delete");//error msg
+        }
+        else
+        {
+            try 
+            {
+                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String BId = BookIdTb.getText();
+                String Query = "Delete from User1.BookTbl where BID="+BId;
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);
+                JOptionPane.showMessageDialog(this, "Book Deleted"); //Added Msg
+                DisplayBooks(); //refresh the Books Table - add the new book
+                Reset(); // resert cells after added book
+            } 
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_DeleteBtnMouseClicked
 
     /**
      * @param args the command line arguments
