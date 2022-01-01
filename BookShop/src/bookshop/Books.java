@@ -197,6 +197,11 @@ public class Books extends javax.swing.JFrame {
         EditBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EditBtn.setForeground(new java.awt.Color(255, 255, 255));
         EditBtn.setText("Edit");
+        EditBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditBtnMouseClicked(evt);
+            }
+        });
         EditBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditBtnActionPerformed(evt);
@@ -519,7 +524,7 @@ public class Books extends javax.swing.JFrame {
 
     //Delete Book Button
     private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
-        if(BookIdTb.getText().isEmpty() )//Check if the fields are empty
+        if(BookIdTb.getText().isEmpty() )//Check if the field are empty
         {
             JOptionPane.showMessageDialog(this, "Missing Information - Select Book to Delete");//error msg
         }
@@ -543,7 +548,7 @@ public class Books extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeleteBtnMouseClicked
 
-    //the Book Table clicked
+    //Show selected raw info on cells
     private void BooksTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BooksTableMouseClicked
         DefaultTableModel model = (DefaultTableModel)BooksTable.getModel();
         int MyIndex = BooksTable.getSelectedRow();
@@ -554,6 +559,32 @@ public class Books extends javax.swing.JFrame {
         QuantityTb.setText(model.getValueAt(MyIndex, 4).toString());
         PriceTb.setText(model.getValueAt(MyIndex, 5).toString());
     }//GEN-LAST:event_BooksTableMouseClicked
+
+    //Edit Book Button
+    private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
+        if(BookIdTb.getText().isEmpty() || NameTb.getText().isEmpty() || AuthorTb.getText().isEmpty() || CatCb.getSelectedIndex() == -1 || QuantityTb.getText().isEmpty() || PriceTb.getText().isEmpty())//Check if the fields are empty
+        {
+            JOptionPane.showMessageDialog(this, "Missing Information - Select Book to Edit and change cells");//error msg
+        }
+        else
+        {
+            try 
+            {
+                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String BId = BookIdTb.getText();
+                String Query = "Update User1.BookTbl set Title='"+NameTb.getText()+"',Author='"+AuthorTb.getText()+"',Category='"+CatCb.getSelectedItem()+"',Quantity="+QuantityTb.getText()+",Price="+PriceTb.getText()+" where BID="+BId;
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);
+                JOptionPane.showMessageDialog(this, "Book Updated"); //Added Msg
+                DisplayBooks(); //refresh the Books Table - add the new book
+                Reset(); // resert cells after added book
+            } 
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_EditBtnMouseClicked
 
     /**
      * @param args the command line arguments
