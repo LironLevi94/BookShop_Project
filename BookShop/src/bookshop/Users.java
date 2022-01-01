@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -237,6 +238,11 @@ public class Users extends javax.swing.JFrame {
         ));
         UsersTable.setRowHeight(25);
         UsersTable.setSelectionBackground(new java.awt.Color(195, 247, 234));
+        UsersTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsersTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(UsersTable);
 
         LogoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookshop/back.png"))); // NOI18N
@@ -504,6 +510,17 @@ public class Users extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_PrintBtnMouseClicked
+
+    //Show selected raw info on cells
+    private void UsersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel)UsersTable.getModel();
+        int MyIndex = UsersTable.getSelectedRow();
+        UIdTb.setText(model.getValueAt(MyIndex, 0).toString());
+        UNameTb.setText(model.getValueAt(MyIndex, 1).toString());
+        PhoneTb.setText(model.getValueAt(MyIndex, 2).toString());
+        AddressTb.setText(model.getValueAt(MyIndex, 3).toString());
+        PasswordTb.setText(model.getValueAt(MyIndex, 4).toString());
+    }//GEN-LAST:event_UsersTableMouseClicked
 
     /**
      * @param args the command line arguments
