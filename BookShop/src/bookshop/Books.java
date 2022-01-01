@@ -29,7 +29,7 @@ public class Books extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
+        UsersBtn = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -54,8 +54,8 @@ public class Books extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         BooksTable = new javax.swing.JTable();
-        jButton6 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
+        PrintBtn = new javax.swing.JButton();
+        LogoutBtn = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         CatCb = new javax.swing.JComboBox<>();
 
@@ -63,9 +63,14 @@ public class Books extends javax.swing.JFrame {
         setUndecorated(true);
         setSize(new java.awt.Dimension(884, 599));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 51, 255));
-        jLabel3.setText("Users");
+        UsersBtn.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
+        UsersBtn.setForeground(new java.awt.Color(102, 51, 255));
+        UsersBtn.setText("Users");
+        UsersBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsersBtnMouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookshop/user.png"))); // NOI18N
 
@@ -258,17 +263,27 @@ public class Books extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(BooksTable);
 
-        jButton6.setBackground(new java.awt.Color(102, 51, 255));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Print");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        PrintBtn.setBackground(new java.awt.Color(102, 51, 255));
+        PrintBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PrintBtn.setForeground(new java.awt.Color(255, 255, 255));
+        PrintBtn.setText("Print");
+        PrintBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrintBtnMouseClicked(evt);
+            }
+        });
+        PrintBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                PrintBtnActionPerformed(evt);
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookshop/back.png"))); // NOI18N
+        LogoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookshop/back.png"))); // NOI18N
+        LogoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutBtnMouseClicked(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Lucida Calligraphy", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 51, 255));
@@ -331,15 +346,15 @@ public class Books extends javax.swing.JFrame {
                                         .addGap(35, 35, 35)))))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
+                        .addComponent(LogoutBtn)
                         .addGap(361, 361, 361)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PrintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(UsersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -363,7 +378,7 @@ public class Books extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UsersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(2, 2, 2)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,8 +416,8 @@ public class Books extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LogoutBtn, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PrintBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -446,9 +461,9 @@ public class Books extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ResetBtnActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void PrintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_PrintBtnActionPerformed
 
     //X Button
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -586,6 +601,30 @@ public class Books extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EditBtnMouseClicked
 
+    //Print Books List Button
+    private void PrintBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrintBtnMouseClicked
+        try 
+        {
+            BooksTable.print(); 
+        } 
+        catch (Exception e) 
+        {
+            
+        }
+    }//GEN-LAST:event_PrintBtnMouseClicked
+
+    //Logout Button
+    private void LogoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutBtnMouseClicked
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutBtnMouseClicked
+
+    //Users Button
+    private void UsersBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersBtnMouseClicked
+        new Users().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_UsersBtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -628,20 +667,20 @@ public class Books extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CatCb;
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
+    private javax.swing.JLabel LogoutBtn;
     private javax.swing.JTextField NameTb;
     private javax.swing.JTextField PriceTb;
+    private javax.swing.JButton PrintBtn;
     private javax.swing.JTextField QuantityTb;
     private javax.swing.JButton ResetBtn;
     private javax.swing.JButton SaveBtn;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel UsersBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
