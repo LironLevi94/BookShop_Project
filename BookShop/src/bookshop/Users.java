@@ -192,6 +192,11 @@ public class Users extends javax.swing.JFrame {
         DeleteBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         DeleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         DeleteBtn.setText("Delete");
+        DeleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteBtnMouseClicked(evt);
+            }
+        });
         DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteBtnActionPerformed(evt);
@@ -521,6 +526,32 @@ public class Users extends javax.swing.JFrame {
         AddressTb.setText(model.getValueAt(MyIndex, 3).toString());
         PasswordTb.setText(model.getValueAt(MyIndex, 4).toString());
     }//GEN-LAST:event_UsersTableMouseClicked
+
+    //Delete Book Button
+    private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
+        if(UIdTb.getText().isEmpty() )//Check if the field are empty
+        {
+            JOptionPane.showMessageDialog(this, "Missing Information - Select User to Delete");//error msg
+        }
+        else
+        {
+            try 
+            {
+                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String UId = UIdTb.getText();
+                String Query = "Delete from User1.UserTbl where UID="+UId;
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);
+                JOptionPane.showMessageDialog(this, "User Deleted"); //Added Msg
+                DisplayUsers(); //refresh the Users Table - add the new user
+                Reset(); // resert cells after added user
+            } 
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_DeleteBtnMouseClicked
 
     /**
      * @param args the command line arguments
