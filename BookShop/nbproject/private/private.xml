@@ -3,20 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Book.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Bill.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Login.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Book.png</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Inventory.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/ItemToBill.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/ManageSellerAccount.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/User.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/SellerUser.java</file>
             <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/BookShop.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Product.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/AdminUser.java</file>
+            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Books.java</file>
+            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Billing.java</file>
+            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Login.java</file>
             <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Splash.java</file>
-            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Customer.java</file>
+            <file>file:/C:/Users/liron/Documents/NetBeansProjects/Project/BookShop/src/bookshop/Users.java</file>
         </group>
     </open-files>
 </project-private>
