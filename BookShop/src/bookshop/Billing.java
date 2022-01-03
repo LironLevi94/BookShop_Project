@@ -132,6 +132,11 @@ public class Billing extends javax.swing.JFrame {
         ResetBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ResetBtn.setForeground(new java.awt.Color(255, 255, 255));
         ResetBtn.setText("Reset");
+        ResetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResetBtnMouseClicked(evt);
+            }
+        });
         ResetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetBtnActionPerformed(evt);
@@ -393,6 +398,18 @@ public class Billing extends javax.swing.JFrame {
         PriceTb.setText(model.getValueAt(MyIndex, 5).toString());
     }//GEN-LAST:event_BooksTableMouseClicked
 
+    private void Reset()
+    {
+        BookNameTb.setText("");
+        PriceTb.setText("");
+        QtyTb.setText("");
+        ClientNameTb.setText("");
+        BillTxt.setText("");
+        GrdTotalLbl.setText("Total:");
+        i=0;
+        GrdTotal = 0;
+    }
+    
     int i = 0 , Total =0, GrdTotal = 0;// i = the index of the added book, Total = total price for each book
     //Add To Biil Button
     private void AddToBillBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddToBillBtnMouseClicked
@@ -428,11 +445,15 @@ public class Billing extends javax.swing.JFrame {
         {
             BillTxt.print();
         } 
-        catch (Exception e) 
-        {
-            
-        }
+        catch (Exception e) {}
+        Reset();
     }//GEN-LAST:event_printBtnMouseClicked
+
+    
+    //Reset Button
+    private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
+        Reset();
+    }//GEN-LAST:event_ResetBtnMouseClicked
 
     /**
      * @param args the command line arguments
