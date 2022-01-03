@@ -42,7 +42,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         ResetBtn = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        printBtn = new javax.swing.JButton();
         AddToBillBtn = new javax.swing.JButton();
         ClientNameTb = new javax.swing.JTextField();
         PriceTb = new javax.swing.JTextField();
@@ -138,13 +138,18 @@ public class Billing extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(102, 51, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Print");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        printBtn.setBackground(new java.awt.Color(102, 51, 255));
+        printBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        printBtn.setForeground(new java.awt.Color(255, 255, 255));
+        printBtn.setText("Print");
+        printBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printBtnMouseClicked(evt);
+            }
+        });
+        printBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                printBtnActionPerformed(evt);
             }
         });
 
@@ -264,7 +269,7 @@ public class Billing extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(GrdTotalLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(printBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(184, 184, 184))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,7 +317,7 @@ public class Billing extends javax.swing.JFrame {
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(printBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(jLabel14)
                     .addComponent(GrdTotalLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -334,9 +339,9 @@ public class Billing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ResetBtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void printBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_printBtnActionPerformed
 
     private void AddToBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToBillBtnActionPerformed
         // TODO add your handling code here:
@@ -416,6 +421,19 @@ public class Billing extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AddToBillBtnMouseClicked
 
+    
+    //Print Button
+    private void printBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printBtnMouseClicked
+        try 
+        {
+            BillTxt.print();
+        } 
+        catch (Exception e) 
+        {
+            
+        }
+    }//GEN-LAST:event_printBtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -461,7 +479,6 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JTextField PriceTb;
     private javax.swing.JTextField QtyTb;
     private javax.swing.JButton ResetBtn;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -476,5 +493,6 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton printBtn;
     // End of variables declaration//GEN-END:variables
 }

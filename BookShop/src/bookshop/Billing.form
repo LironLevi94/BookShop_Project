@@ -90,7 +90,7 @@
                   <Group type="102" attributes="0">
                       <Component id="GrdTotalLbl" pref="137" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="printBtn" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -154,7 +154,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton3" pref="31" max="32767" attributes="0"/>
+                  <Component id="printBtn" pref="31" max="32767" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <Component id="GrdTotalLbl" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -329,7 +329,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="printBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="33" red="66" type="rgb"/>
@@ -343,7 +343,8 @@
         <Property name="text" type="java.lang.String" value="Print"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="printBtnMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="AddToBillBtn">
