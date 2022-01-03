@@ -564,6 +564,22 @@ public class Billing extends javax.swing.JFrame {
     
     //Reset Button
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
+        int newQty = Stock;
+        try 
+            {
+                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                
+                String Query = "Update User1.BookTbl set Quantity="+newQty+" where BID="+BId;
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);
+                JOptionPane.showMessageDialog(this, "Book Updated"); //Added Msg
+                DisplayBooks(); //refresh the Books Table - add the new book
+                //Reset(); // resert cells after added book
+            } 
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
         Reset();
     }//GEN-LAST:event_ResetBtnMouseClicked
 
