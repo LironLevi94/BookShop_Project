@@ -15,11 +15,11 @@ public class BookShop extends javax.swing.JFrame{
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //new Splash().setVisible(true);
+        Splash.main(args);
         //new Login().setVisible(true);
         //new Users().setVisible(true);
         //new Books().setVisible(true);
-        new Billing().setVisible(true);
+        //new Billing().setVisible(true);
         
     }
     
