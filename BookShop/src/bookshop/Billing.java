@@ -50,7 +50,7 @@ public class Billing extends javax.swing.JFrame {
         BooksTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         BillTxt = new javax.swing.JTextArea();
-        jLabel12 = new javax.swing.JLabel();
+        GrdTotalLbl = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
@@ -200,9 +200,9 @@ public class Billing extends javax.swing.JFrame {
         BillTxt.setRows(5);
         jScrollPane2.setViewportView(BillTxt);
 
-        jLabel12.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel12.setText("Total:");
+        GrdTotalLbl.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
+        GrdTotalLbl.setForeground(new java.awt.Color(0, 179, 179));
+        GrdTotalLbl.setText("Total:");
 
         jLabel13.setFont(new java.awt.Font("Lucida Calligraphy", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 204, 204));
@@ -259,11 +259,11 @@ public class Billing extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                        .addGap(50, 50, 50)
+                        .addComponent(GrdTotalLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(184, 184, 184))
                     .addGroup(layout.createSequentialGroup()
@@ -311,11 +311,10 @@ public class Billing extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel12)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jLabel14)
+                    .addComponent(GrdTotalLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -389,7 +388,7 @@ public class Billing extends javax.swing.JFrame {
         PriceTb.setText(model.getValueAt(MyIndex, 5).toString());
     }//GEN-LAST:event_BooksTableMouseClicked
 
-    int i = 0 , Total =0;
+    int i = 0 , Total =0, GrdTotal = 0;// i = the index of the added book, Total = total price for each book
     //Add To Biil Button
     private void AddToBillBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddToBillBtnMouseClicked
         if(QtyTb.getText().isEmpty() || BookNameTb.getText().isEmpty())
@@ -412,6 +411,8 @@ public class Billing extends javax.swing.JFrame {
             {
                 BillTxt.setText(BillTxt.getText()+i+"                     "+BookNameTb.getText()+"                "+PriceTb.getText()+"                            "+QtyTb.getText()+"                         "+Total+"\n");
             }
+            GrdTotal = GrdTotal + Total;
+            GrdTotalLbl.setText("Total: "+GrdTotal+"$ "); // the total price for the bill
         }
     }//GEN-LAST:event_AddToBillBtnMouseClicked
 
@@ -456,6 +457,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JTextField BookNameTb;
     private javax.swing.JTable BooksTable;
     private javax.swing.JTextField ClientNameTb;
+    private javax.swing.JLabel GrdTotalLbl;
     private javax.swing.JTextField PriceTb;
     private javax.swing.JTextField QtyTb;
     private javax.swing.JButton ResetBtn;
@@ -463,7 +465,6 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
