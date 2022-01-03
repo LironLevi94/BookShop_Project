@@ -28,7 +28,7 @@
           <Group type="102" attributes="0">
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="UnameLbl" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="UnameLbl" min="-2" pref="226" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel13" min="-2" pref="81" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
@@ -108,13 +108,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="UnameLbl" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="UnameLbl" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -138,7 +138,7 @@
                                   </Group>
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" pref="24" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" pref="22" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
@@ -148,7 +148,7 @@
                                   <Component id="ClientNameTb" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="PriceTb" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="51" pref="133" max="32767" attributes="0"/>
+                              <EmptySpace min="51" pref="130" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
@@ -480,6 +480,9 @@
           <Image iconType="3" name="/bookshop/back.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel14MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
