@@ -229,6 +229,7 @@ public class Login extends javax.swing.JFrame {
         {
             //Admin Selected
             String Query = "select * from User1.UserTbl where UName='"+UNameTb.getText()+"' and UPassword='"+PasswordTb.getText()+"'";
+            String UserName = UNameTb.getText();
             try 
             {
                 Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
@@ -236,7 +237,7 @@ public class Login extends javax.swing.JFrame {
                 Rs = St.executeQuery(Query);
                 if(Rs.next())
                 {
-                    new Billing().setVisible(true);
+                    new Billing(UserName).setVisible(true);
                     this.dispose();
                 }
                 else

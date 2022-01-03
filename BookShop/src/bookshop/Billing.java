@@ -383,9 +383,11 @@ public class Billing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PriceTbActionPerformed
 
-    //get the user name from Login
-    public Billing (String UserName)
+    //get the seller name from Login
+    public Billing (String SellerName)
     {
+        initComponents();
+        UnameLbl.setText(SellerName);
         
     }
     
