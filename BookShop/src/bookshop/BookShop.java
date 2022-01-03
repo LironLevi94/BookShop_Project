@@ -19,7 +19,7 @@ public class BookShop extends javax.swing.JFrame{
         //new Login().setVisible(true);
         //new Users().setVisible(true);
         //new Books().setVisible(true);
-        //new Billing().setVisible(true);
+        new Billing().setVisible(true);
         
     }
     
