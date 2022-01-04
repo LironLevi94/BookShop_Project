@@ -449,11 +449,12 @@ public class Billing extends javax.swing.JFrame {
         {
             try 
             {
+                Customer Client = new Customer(ClientNameTb.getText());
                 Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
                 PreparedStatement add = Con.prepareStatement("insert into BillTbl values(?,?,?,?)");
                 add.setInt(1, Integer.valueOf(BillNumTb.getText())); // add Bill Number
                 add.setString(2, UnameLbl.getText()); // add Seller Name
-                add.setString(3, ClientNameTb.getText()); // add Client
+                add.setString(3, Client.getName()); // add Client
                 add.setInt(4, Integer.valueOf(GrdTotal) ); // add Total
                 int row = add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Bill Saved"); //Saved Msg
@@ -579,7 +580,6 @@ public class Billing extends javax.swing.JFrame {
     
     //Reset Button
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
-        int newQty = Stock;
         int k; 
         
         try 

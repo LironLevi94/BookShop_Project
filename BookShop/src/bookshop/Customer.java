@@ -12,5 +12,17 @@ import java.io.*;
  */
 public class Customer implements Serializable
 {
-    public String Name;
+    private String Name;
+
+    public Customer(String Name) {
+        this.Name = Name;
+    }
+
+
+    public String getName() {
+        return Name;
+    }
+    
+
+    
 }
