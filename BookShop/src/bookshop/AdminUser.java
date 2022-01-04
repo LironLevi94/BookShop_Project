@@ -37,14 +37,14 @@ public class AdminUser extends User
     }
     
     
-    public boolean addNewSellerAcc(SellerUser Seller)
+    public boolean addNewSellerAcc(SellerUser Seller) // Add Seller
     {
         Connection Con = null; //DB 
-        Seller.getUserName();
+        /*Seller.getUserName();
         Seller.getPassword();
         Seller.getSeller().getID();
         Seller.getSeller().getPhone();
-        Seller.getSeller().getAddress();
+        Seller.getSeller().getAddress();*/
 
         try
         {

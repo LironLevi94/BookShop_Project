@@ -228,39 +228,28 @@ public class Login extends javax.swing.JFrame {
         else if(RoleCb .getSelectedIndex()== 1) // Seller account
         {
             //Seller Selected
+            
             String UserName = UNameTb.getText();
             String Password = PasswordTb.getText();
             
-            AdminUser Admin = new AdminUser(UserName, Password);
+            ManageSellerAccount sellerManage = new ManageSellerAccount(0,  null,  null);
+            
+            SellerUser Seller = new SellerUser(sellerManage, UserName, Password);
             boolean permmision = false;
-            permmision = Admin.LoginAdmin(Admin); //get Admin permmision
+            permmision = Seller.LoginSeller(Seller); //get Admin permmision
             
-            
-            
-            
-            String Query = "select * from User1.UserTbl where UName='"+UNameTb.getText()+"' and UPassword='"+PasswordTb.getText()+"'";
-            String UserName = UNameTb.getText();
-            try 
-            {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                St = Con.createStatement();
-                Rs = St.executeQuery(Query);
-                if(Rs.next())
+            if(permmision == true)
                 {
                     new Billing(UserName).setVisible(true);
                     this.dispose();
                 }
-                else
+            else
                 {
                     JOptionPane.showMessageDialog(this, "Wrong User Name or Password"); //Added Msg
                     UNameTb.setText("");
                     PasswordTb.setText("");
                 }
-            } 
-            catch (Exception e) 
-            {
-                
-            }
+
         }
         else //Admin Sellected
         {

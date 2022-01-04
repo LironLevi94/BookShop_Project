@@ -491,15 +491,7 @@ public class Users extends javax.swing.JFrame {
                 boolean permmision = false;
                 AdminUser Admin = new AdminUser("Admin", "Password");
                 permmision = Admin.addNewSellerAcc(Seller);
-                
-                /*Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                PreparedStatement add = Con.prepareStatement("insert into UserTbl values(?,?,?,?,?)");
-                add.setInt(1, Integer.valueOf(UIdTb.getText())); // add ID
-                add.setString(2, UNameTb.getText()); // add Name
-                add.setString(3, PhoneTb.getText()); // add Phone
-                add.setString(4, AddressTb.getText()); // add Address
-                add.setString(5, PasswordTb.getText()); // add Password
-                int row = add.executeUpdate();*/
+
                 if (permmision == true)
                 {
                     JOptionPane.showMessageDialog(this, "User Added"); //Added Msg
