@@ -125,7 +125,7 @@ public class AdminUser extends User
             
         
             Inventory newInventory = new Inventory();
-            newInventory.AddToInventory(add /*, newBook*/);  //***FIX ARRAY**          
+            newInventory.AddToInventory(add , newBook);  //***FIX ARRAY**          
         }
         catch (Exception e) 
         {
@@ -145,7 +145,7 @@ public class AdminUser extends User
             Statement Delete = Con.createStatement();
             
             Inventory newInventory = new Inventory();
-            newInventory.DeleteOrUpdateFromInventory(/*newBook, */Query, Delete); 
+            newInventory.DeleteFromInventory(newBook, Query, Delete); 
         }
         catch (Exception e) 
         {
@@ -166,7 +166,7 @@ public class AdminUser extends User
             Statement Delete = Con.createStatement();
             
             Inventory newInventory = new Inventory();
-            newInventory.DeleteOrUpdateFromInventory(/*Book newBook, */Query, Delete); 
+            newInventory.UpdateFromInventory(newBook, Query, Delete); 
         }
         catch (Exception e) 
         {

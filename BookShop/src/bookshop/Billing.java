@@ -562,7 +562,7 @@ public class Billing extends javax.swing.JFrame {
     Statement St1 = null; //DB 
     ResultSet Rs1 = null; //DB 
     
-    //count the bill num - Rows - Bill Num
+    //count the Rows - Bill Num
     private void CountRow()
     {
         try 
@@ -581,11 +581,10 @@ public class Billing extends javax.swing.JFrame {
     //Reset Button
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
         int k; 
-        
         try 
             {
                 Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                for( k = n ; k >= 0 ; k--)
+                for( k = n ; k >= 0 ; k--) //return the Original Stocks before add to bill
                 {
                 String Query = "Update User1.BookTbl set Quantity="+String.valueOf(StockArr[k])+" where BID="+String.valueOf(IdArr[k]);
                 Statement Delete = Con.createStatement();

@@ -18,7 +18,6 @@ public class Customer implements Serializable
         this.Name = Name;
     }
 
-
     public String getName() {
         return Name;
     }

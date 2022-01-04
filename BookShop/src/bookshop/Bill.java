@@ -18,10 +18,6 @@ import net.proteanit.sql.DbUtils;
  */
 public class Bill implements Serializable
 {
-    //public ItemToBill[] ItemsBill = new ItemToBill[50];
-    //public int BillNumber;
-    //public Customer ClientName;
-    //public int FinalBillPrice;
     
     public int BillNum()
     {

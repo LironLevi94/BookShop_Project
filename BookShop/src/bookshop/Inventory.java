@@ -22,13 +22,9 @@ import javax.swing.JOptionPane;
  */
 public class Inventory implements Serializable
 {
-    public static Book[] BooksInventory = new Book[150];
-    public static int countNumOfBooks = 0;
-    
-    
-    public void AddToInventory(PreparedStatement add/*, Book newBook*/) //AddBook//**fix array needed**
+      
+    public void AddToInventory(PreparedStatement add, Book newBook) //AddBook//**fix array needed**
     {
-        //BooksInventory[countNumOfBooks++] = newBook;
         try
         {
             int row = add.executeUpdate();
@@ -39,8 +35,20 @@ public class Inventory implements Serializable
         }
     }
     
-    public void DeleteOrUpdateFromInventory(/*Book newBook, */String Query, Statement Delete) //DeleteBook
-    {        
+    public void DeleteFromInventory(Book newBook, String Query, Statement Delete) //Delete Book
+    {     
+        try
+        {
+            Delete.executeUpdate(Query);
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    public void UpdateFromInventory(Book newBook, String Query, Statement Delete) //Update Book
+    {    
         try
         {
             Delete.executeUpdate(Query);
