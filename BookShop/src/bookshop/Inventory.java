@@ -3,12 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package bookshop;
+import java.io.*;
 
 import com.sun.jdi.connect.spi.Connection;
-import java.awt.print.Book;
 import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +26,7 @@ public class Inventory implements Serializable
     public static int countNumOfBooks = 0;
     
     
-    public void AddToInventory(PreparedStatement add/*, Book newBook*/) //AddBook
+    public void AddToInventory(PreparedStatement add/*, Book newBook*/) //AddBook//**fix array needed**
     {
         //BooksInventory[countNumOfBooks++] = newBook;
         try

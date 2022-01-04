@@ -535,6 +535,7 @@ public class Billing extends javax.swing.JFrame {
         try 
         {
             BillTxt.print();
+            CountRow();
             
         } 
         catch (Exception e) {}
@@ -544,16 +545,15 @@ public class Billing extends javax.swing.JFrame {
 
     Statement St1 = null; //DB 
     ResultSet Rs1 = null; //DB 
-    //count the bill num - Rows
+    
+    //count the bill num - Rows - Bill Num
     private void CountRow()
     {
         try 
         {
-           Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-           St1 = Con.createStatement();
-           Rs1 = St1.executeQuery("select * from User1.BillTbl order by BNum DESC FETCH FIRST ROW ONLY");
-           Rs1.next();
-           int Id = Rs1.getInt(1)+1;
+           Bill newBillNum = new Bill();
+           int Id;
+           Id = newBillNum.BillNum();
            BillNumTb.setText(Id+"");
         } 
         catch (Exception e) 

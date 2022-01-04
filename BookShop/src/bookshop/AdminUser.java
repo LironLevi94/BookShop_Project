@@ -123,8 +123,9 @@ public class AdminUser extends User
             add.setInt(5, newBook.getQuantity()); // add Quantity
             add.setInt(6, newBook.getPrice()); // add Price
             
+        
             Inventory newInventory = new Inventory();
-            newInventory.AddToInventory(add /*, newBook*/);            
+            newInventory.AddToInventory(add /*, newBook*/);  //***FIX ARRAY**          
         }
         catch (Exception e) 
         {
@@ -144,7 +145,7 @@ public class AdminUser extends User
             Statement Delete = Con.createStatement();
             
             Inventory newInventory = new Inventory();
-            newInventory.DeleteOrUpdateFromInventory(/*Book newBook, */Query, Delete); 
+            newInventory.DeleteOrUpdateFromInventory(/*newBook, */Query, Delete); 
         }
         catch (Exception e) 
         {

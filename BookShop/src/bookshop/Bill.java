@@ -4,15 +4,48 @@
  */
 package bookshop;
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 /**
  *
  * @author liron
  */
 public class Bill implements Serializable
 {
-    public ItemToBill[] ItemsBill = new ItemToBill[50];
-    public int BillNumber;
-    public Customer ClientName;
-    public int FinalBillPrice;
+    //public ItemToBill[] ItemsBill = new ItemToBill[50];
+    //public int BillNumber;
+    //public Customer ClientName;
+    //public int FinalBillPrice;
+    
+    public int BillNum()
+    {
+        //SQL functions //
+        Connection Con = null; //DB 
+        Statement St = null; //DB 
+        ResultSet Rs = null; //DB
+        int Id = 0;
+        
+        try
+        {
+        Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+        St = Con.createStatement();
+        Rs = St.executeQuery("select * from User1.BillTbl order by BNum DESC FETCH FIRST ROW ONLY");
+        Rs.next();
+        Id = Rs.getInt(1)+1;
+        return Id;
+        }
+        
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return Id;
+    }
     
 }
