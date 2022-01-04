@@ -39,6 +39,7 @@ public class ItemToBill implements Serializable
         
         Total = Integer.valueOf(Item.getPrice())*Integer.valueOf(Item.getItemAmount()); //total for each book
 
+        
         return Total;
 
         

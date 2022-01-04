@@ -479,9 +479,15 @@ public class Billing extends javax.swing.JFrame {
         GrdTotalLbl.setText("");
     }
     
-    int BId;
+    int BId, n = 0;
+    int StockArr[] = new int [50];
+    int IdArr[] = new int [50];
     private void UpdateBook()
     {
+        StockArr[n] = Stock;
+        IdArr[n] = BId;
+        n +=1;
+        
         int newQty = Stock - Integer.valueOf(QtyTb.getText());
         try 
             {
@@ -492,7 +498,7 @@ public class Billing extends javax.swing.JFrame {
                 Delete.executeUpdate(Query);
                 JOptionPane.showMessageDialog(this, "Book Updated"); //Added Msg
                 DisplayBooks(); //refresh the Books Table - add the new book
-                //Reset(); // resert cells after added book
+                
             } 
             catch (Exception e) 
             {
@@ -574,16 +580,20 @@ public class Billing extends javax.swing.JFrame {
     //Reset Button
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
         int newQty = Stock;
+        int k; 
+        
         try 
             {
                 Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                
-                String Query = "Update User1.BookTbl set Quantity="+newQty+" where BID="+BId;
+                for( k = n ; k >= 0 ; k--)
+                {
+                String Query = "Update User1.BookTbl set Quantity="+String.valueOf(StockArr[k])+" where BID="+String.valueOf(IdArr[k]);
                 Statement Delete = Con.createStatement();
                 Delete.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this, "Book Updated"); //Added Msg
+                }
+                n = 0;
+                JOptionPane.showMessageDialog(this, "Books Stocks Updated"); //Added Msg
                 DisplayBooks(); //refresh the Books Table - add the new book
-                //Reset(); // resert cells after added book
             } 
             catch (Exception e) 
             {
