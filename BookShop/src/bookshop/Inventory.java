@@ -33,7 +33,7 @@ public class Inventory implements Serializable
         }
     }
     
-    public void DeleteFromInventory(/*Book newBook, */String Query, Statement Delete) //DeleteBook
+    public void DeleteOrUpdateFromInventory(/*Book newBook, */String Query, Statement Delete) //DeleteBook
     {        
         try
         {
@@ -45,8 +45,4 @@ public class Inventory implements Serializable
         }
     }
         
-    public void UpdateInventory(/*Book newBook, */String Query, Connection Con) //EditBook
-    {
-        
-    }   
 }
