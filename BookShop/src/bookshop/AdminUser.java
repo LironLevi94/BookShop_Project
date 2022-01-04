@@ -67,7 +67,28 @@ public class AdminUser extends User
     }
 
 
-    
+    public boolean DeleteSellerAcc(SellerUser Seller)
+    {
+        Connection Con = null; //DB 
+        
+        try
+        {
+            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                int UId = Seller.getSeller().getID();
+                String Query = "Delete from User1.UserTbl where UID="+String.valueOf(UId);
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);
+
+                /*JOptionPane.showMessageDialog(this, "User Deleted"); //Added Msg
+                DisplayUsers(); //refresh the Users Table - add the new user
+                Reset(); // resert cells after added user*/
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return true;
+    }
 
 
  

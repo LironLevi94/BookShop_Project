@@ -555,14 +555,35 @@ public class Users extends javax.swing.JFrame {
         {
             try 
             {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                String UId = UIdTb.getText();
-                String Query = "Delete from User1.UserTbl where UID="+UId;
-                Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);
+                int ID = Integer.valueOf(UIdTb.getText());
+
+                ManageSellerAccount sellerManage = new ManageSellerAccount(ID,  null,  null);
+                SellerUser Seller = new SellerUser(sellerManage, null, null);
+                boolean permmision = false;
+                AdminUser Admin = new AdminUser("Admin", "Password");
+                permmision = Admin.DeleteSellerAcc(Seller);
+
+                if (permmision == true)
+                {                    
                 JOptionPane.showMessageDialog(this, "User Deleted"); //Added Msg
                 DisplayUsers(); //refresh the Users Table - add the new user
                 Reset(); // resert cells after added user
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "ERROR with User Deleted");
+                }
+                
+                
+                /*Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String UId = UIdTb.getText();
+                String Query = "Delete from User1.UserTbl where UID="+UId;
+                Statement Delete = Con.createStatement();
+                Delete.executeUpdate(Query);*/
+                    
+                /*JOptionPane.showMessageDialog(this, "User Deleted"); //Added Msg
+                DisplayUsers(); //refresh the Users Table - add the new user
+                Reset(); // resert cells after added user*/
             } 
             catch (Exception e) 
             {
