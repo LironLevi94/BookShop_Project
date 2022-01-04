@@ -8,6 +8,7 @@ import com.sun.jdi.connect.spi.Connection;
 import java.awt.print.Book;
 import java.io.*;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 /**
  *
@@ -32,12 +33,19 @@ public class Inventory implements Serializable
         }
     }
     
-    private void DeleteFromInventory(Book newBook, String Query, Connection Con) //DeleteBook
-    {
-        
+    public void DeleteFromInventory(/*Book newBook, */String Query, Statement Delete) //DeleteBook
+    {        
+        try
+        {
+            Delete.executeUpdate(Query);
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
     }
         
-    private void UpdateInventory(Book newBook, String Query, Connection Con) //EditBook
+    public void UpdateInventory(/*Book newBook, */String Query, Connection Con) //EditBook
     {
         
     }   

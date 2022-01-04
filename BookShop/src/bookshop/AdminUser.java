@@ -124,10 +124,7 @@ public class AdminUser extends User
             add.setInt(6, newBook.getPrice()); // add Price
             
             Inventory newInventory = new Inventory();
-            newInventory.AddToInventory(add /*, newBook*/);
-            //int row = add.executeUpdate();
-
-            
+            newInventory.AddToInventory(add /*, newBook*/);            
         }
         catch (Exception e) 
         {
@@ -145,7 +142,10 @@ public class AdminUser extends User
             String BId = String.valueOf(newBook.getID());
             String Query = "Delete from User1.BookTbl where BID="+BId;
             Statement Delete = Con.createStatement();
-            Delete.executeUpdate(Query);
+            //Delete.executeUpdate(Query);
+            
+            Inventory newInventory = new Inventory();
+            newInventory.DeleteFromInventory(/*Book newBook, */Query, Delete); 
         }
         catch (Exception e) 
         {
