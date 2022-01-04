@@ -480,17 +480,32 @@ public class Users extends javax.swing.JFrame {
         {
             try 
             {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String UserName = UNameTb.getText();
+                String Password = PasswordTb.getText();
+                int ID = Integer.valueOf(UIdTb.getText());
+                String Phone = PhoneTb.getText();
+                String Address = AddressTb.getText();
+                
+                ManageSellerAccount sellerManage = new ManageSellerAccount(ID,  Phone,  Address);
+                SellerUser Seller = new SellerUser(sellerManage, UserName, Password);
+                boolean permmision = false;
+                AdminUser Admin = new AdminUser("Admin", "Password");
+                permmision = Admin.addNewSellerAcc(Seller);
+                
+                /*Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
                 PreparedStatement add = Con.prepareStatement("insert into UserTbl values(?,?,?,?,?)");
                 add.setInt(1, Integer.valueOf(UIdTb.getText())); // add ID
                 add.setString(2, UNameTb.getText()); // add Name
                 add.setString(3, PhoneTb.getText()); // add Phone
                 add.setString(4, AddressTb.getText()); // add Address
                 add.setString(5, PasswordTb.getText()); // add Password
-                int row = add.executeUpdate();
-                JOptionPane.showMessageDialog(this, "User Added"); //Added Msg
-                DisplayUsers(); //refresh the Users Table - add the new User
-                Reset(); // resert cells after added User
+                int row = add.executeUpdate();*/
+                if (permmision == true)
+                {
+                    JOptionPane.showMessageDialog(this, "User Added"); //Added Msg
+                    DisplayUsers(); //refresh the Users Table - add the new User
+                    Reset(); // resert cells after added User
+                }
             } 
             catch (Exception e) 
             {

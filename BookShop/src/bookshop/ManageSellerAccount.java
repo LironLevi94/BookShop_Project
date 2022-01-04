@@ -11,9 +11,17 @@ import java.io.*;
 public class ManageSellerAccount implements Serializable
 {
     private int ID;
-    private int Phone;
+    private String Phone;
     private String Address;
-    private int premmision = 0;//in con
+
+    public ManageSellerAccount(int ID, String Phone, String Address) {
+        this.ID = ID;
+        this.Phone = Phone;
+        this.Address = Address;
+    }
+    
+    
+    
 
     public int getID() {
         return ID;
@@ -23,11 +31,11 @@ public class ManageSellerAccount implements Serializable
         this.ID = ID;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return Phone;
     }
 
-    public void setPhone(int Phone) {
+    public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
@@ -39,9 +47,7 @@ public class ManageSellerAccount implements Serializable
         this.Address = Address;
     }
 
-    public int getPremmision() {
-        return premmision;
-    }
+
 
     
     
