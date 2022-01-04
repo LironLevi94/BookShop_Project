@@ -8,7 +8,7 @@ import java.io.*;
  *
  * @author liron
  */
-public class Product implements Serializable
+public abstract class Product implements Serializable
 {
     protected int ID;
     protected int Price;

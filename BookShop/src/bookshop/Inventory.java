@@ -12,6 +12,6 @@ import java.io.*;
  */
 public class Inventory implements Serializable
 {
-    public Book[] BooksInventory;
+    public Book[] BooksInventory = new Book[150];;
     
 }

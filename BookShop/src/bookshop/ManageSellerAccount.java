@@ -13,7 +13,7 @@ public class ManageSellerAccount implements Serializable
     private int ID;
     private int Phone;
     private String Address;
-    private int premmision = 0;
+    private int premmision = 0;//in con
 
     public int getID() {
         return ID;

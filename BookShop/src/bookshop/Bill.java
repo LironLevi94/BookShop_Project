@@ -10,7 +10,7 @@ import java.io.*;
  */
 public class Bill implements Serializable
 {
-    public ItemToBill[] ItemsBill;
+    public ItemToBill[] ItemsBill = new ItemToBill[50];
     public int BillNumber;
     public Customer ClientName;
     public int FinalBillPrice;

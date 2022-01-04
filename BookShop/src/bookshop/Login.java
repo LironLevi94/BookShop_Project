@@ -227,7 +227,7 @@ public class Login extends javax.swing.JFrame {
         }
         else if(RoleCb .getSelectedIndex()== 1) // Seller account
         {
-            //Admin Selected
+            //Seller Selected
             String Query = "select * from User1.UserTbl where UName='"+UNameTb.getText()+"' and UPassword='"+PasswordTb.getText()+"'";
             String UserName = UNameTb.getText();
             try 
@@ -252,9 +252,16 @@ public class Login extends javax.swing.JFrame {
                 
             }
         }
-        else
+        else //Admin Sellected
         {
-            if(UNameTb.getText().equals("Admin") && PasswordTb.getText().equals("Password")) //Admin accoount
+            String UserName = UNameTb.getText();
+            String Password = PasswordTb.getText();
+            
+            AdminUser Admin = new AdminUser(UserName, Password);
+            boolean permmision = false;
+            permmision = Admin.LoginAdmin(Admin);
+            
+            if(permmision == true) // Admin Account
             {
                 new Books().setVisible(true);
                 this.dispose();

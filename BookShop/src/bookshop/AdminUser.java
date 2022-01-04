@@ -4,39 +4,47 @@
  */
 package bookshop;
 import java.io.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author liron
  */
 public class AdminUser extends User
 {
-    private int permmision;
+    //private int permmision;
 
-    public AdminUser(int permmision, String UserName, String Password) { //constructor
+    public AdminUser(String UserName, String Password) { //constructor
         super(UserName, Password);
-        this.permmision = 1;
+        //this.permmision = 1;
     }
 
-    public int getPermmision() {
+    /*public int getPermmision() {
         return permmision;
-    }
+    }*/
 
 
     public String getUserName() {
         return UserName;
     }
 
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
-    }
 
     public String getPassword() {
         return Password;
     }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
+    
+    public boolean LoginAdmin(AdminUser AdminAcc) //Login As Admin Accout
+    {
+        if(AdminAcc.getUserName().equals("Admin") && AdminAcc.getPassword().equals("Password")) //Admin accoount
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
     }
+
+
 
 
 
