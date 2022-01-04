@@ -24,25 +24,13 @@ public abstract class Product implements Serializable
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
     public int getPrice() {
         return Price;
-    }
-
-    public void setPrice(int Price) {
-        this.Price = Price;
     }
 
     public int getQuantity() {
         return Quantity;
     }
 
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
-    }
-    
     
 }

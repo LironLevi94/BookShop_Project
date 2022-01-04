@@ -34,7 +34,4 @@ public class Book extends Product
         return Category;
     }
 
-
-    
-    
 }

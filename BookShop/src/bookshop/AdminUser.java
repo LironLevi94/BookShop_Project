@@ -122,7 +122,12 @@ public class AdminUser extends User
             add.setString(4, newBook.getCategory()); // add Category//
             add.setInt(5, newBook.getQuantity()); // add Quantity
             add.setInt(6, newBook.getPrice()); // add Price
-            int row = add.executeUpdate();
+            
+            Inventory newInventory = new Inventory();
+            newInventory.AddToInventory(add /*, newBook*/);
+            //int row = add.executeUpdate();
+
+            
         }
         catch (Exception e) 
         {
@@ -157,6 +162,7 @@ public class AdminUser extends User
             Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
             String BId = String.valueOf(newBook.getID());
             String Query = "Update User1.BookTbl set Title='"+newBook.getTitle()+"',Author='"+newBook.getAuthor()+"',Category='"+newBook.getCategory()+"',Quantity="+newBook.getQuantity()+",Price="+newBook.getPrice()+" where BID="+BId;
+            
             Statement Delete = Con.createStatement();
             Delete.executeUpdate(Query);
         }
