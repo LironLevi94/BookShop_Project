@@ -513,8 +513,15 @@ public class Billing extends javax.swing.JFrame {
         }
         else
         {
+            String Title = BookNameTb.getText();
+            int Price = Integer.valueOf(PriceTb.getText());
+            int Quantity = Integer.valueOf(QtyTb.getText());
+            
+            ItemToBill Item = new ItemToBill(Title, Quantity, Price);
+            Total = Item.AddBookToBill(Item);
+            
+            
             i++;
-            Total = Integer.valueOf(PriceTb.getText())*Integer.valueOf(QtyTb.getText()); //total for each book
             if(i==1)
             {
                 BillTxt.setText(BillTxt.getText()+"    ===================== Book Shop ===================== \n"+ "Num                  Product                  Price                  Quantity                  Total\n"+i+"                     "+BookNameTb.getText()+"                "+PriceTb.getText()+"                            "+QtyTb.getText()+"                         "+Total+"\n");
@@ -524,8 +531,10 @@ public class Billing extends javax.swing.JFrame {
                 BillTxt.setText(BillTxt.getText()+i+"                     "+BookNameTb.getText()+"                "+PriceTb.getText()+"                            "+QtyTb.getText()+"                         "+Total+"\n");
             }
             GrdTotal = GrdTotal + Total; //total for all books
+            
             GrdTotalLbl.setText("Total: "+GrdTotal+"$ "); // print the total price for the bill
             UpdateBook(); //Update the book Stock
+           
         }
     }//GEN-LAST:event_AddToBillBtnMouseClicked
 

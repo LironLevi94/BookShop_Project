@@ -10,8 +10,38 @@ import java.io.*;
  */
 public class ItemToBill implements Serializable
 {
-    public Book ItemToBuy;
-    public int ItemAmount;
-    public int TotalPrice;
+    private String BookTitle;
+    private int ItemAmount;
+    private int Price;
+    private static int i = 0;
+
+    public ItemToBill(String BookTitle, int ItemAmount, int Price) {
+        this.BookTitle = BookTitle;
+        this.ItemAmount = ItemAmount;
+        this.Price = Price;
+    }
+
+    public String getBookTitle() {
+        return BookTitle;
+    }
+
+    public int getItemAmount() {
+        return ItemAmount;
+    }
+
+    public int getPrice() {
+        return Price;
+    }
+
+    public int AddBookToBill(ItemToBill Item)
+    {
+        int Total =0;// i = the index of the added book, Total = total price for each book
+        
+        Total = Integer.valueOf(Item.getPrice())*Integer.valueOf(Item.getItemAmount()); //total for each book
+
+        return Total;
+
+        
+    }
     
 }
