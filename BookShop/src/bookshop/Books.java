@@ -514,7 +514,30 @@ public class Books extends javax.swing.JFrame {
         {
             try 
             {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                String Title = NameTb.getText();
+                String Author = AuthorTb.getText();
+                int ID = Integer.valueOf(BookIdTb.getText());
+                String Category = CatCb.getSelectedItem().toString();
+                int Quantity = Integer.valueOf(QuantityTb.getText());
+                int Price = Integer.valueOf(PriceTb.getText());
+
+                Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
+                boolean permmision = false;
+                AdminUser Admin = new AdminUser("Admin", "Password");
+                permmision = Admin.AddBook(newBook);
+
+                if (permmision == true)
+                {
+                    JOptionPane.showMessageDialog(this, "Book Added"); //Added Msg
+                    DisplayBooks(); //refresh the Books Table - add the new book
+                    Reset(); // resert cells after added book
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "ERROR with Book Add");
+                }
+                
+                /*Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
                 PreparedStatement add = Con.prepareStatement("insert into BookTbl values(?,?,?,?,?,?)");
                 add.setInt(1, Integer.valueOf(BookIdTb.getText())); // add ID
                 add.setString(2, NameTb.getText()); // add Title
@@ -525,7 +548,7 @@ public class Books extends javax.swing.JFrame {
                 int row = add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Book Added"); //Added Msg
                 DisplayBooks(); //refresh the Books Table - add the new book
-                Reset(); // resert cells after added book
+                Reset(); // resert cells after added book*/
             } 
             catch (Exception e) 
             {

@@ -107,4 +107,28 @@ public class AdminUser extends User
         }
         return true;
     }
+    
+    
+    public boolean AddBook(Book newBook)
+    {
+        Connection Con = null; //DB 
+        try
+        {
+        Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+                PreparedStatement add = Con.prepareStatement("insert into BookTbl values(?,?,?,?,?,?)");
+                add.setInt(1, newBook.getID()); // add ID
+                add.setString(2, newBook.getTitle()); // add Title
+                add.setString(3, newBook.getAuthor()); // add Author
+                add.setString(4, newBook.getCategory()); // add Category//
+                add.setInt(5, newBook.getQuantity()); // add Quantity
+                add.setInt(6, newBook.getPrice()); // add Price
+                int row = add.executeUpdate();
+        }
+        catch (Exception e) 
+        {
+                e.printStackTrace();
+        }
+        return true;
+    }
+    
 }

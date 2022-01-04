@@ -12,27 +12,29 @@ public class Book extends Product
 {
     protected String Title;
     protected String Author;
+    protected String Category;
 
-    public Book(String Title, String Author, int ID, int Price, int Quantity) {
+    public Book(String Title, String Author, String Category, int ID, int Price, int Quantity) {
         super(ID, Price, Quantity);
         this.Title = Title;
         this.Author = Author;
-    }
-    public String getTitle() {
-        return Title;
+        this.Category = Category;
     }
 
-    public void setTitle(String Title) {
-        this.Title = Title;
+
+    public String getTitle() {
+        return Title;
     }
 
     public String getAuthor() {
         return Author;
     }
 
-    public void setAuthor(String Author) {
-        this.Author = Author;
+    public String getCategory() {
+        return Category;
     }
+
+
     
     
 }
