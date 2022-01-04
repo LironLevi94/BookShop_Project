@@ -78,10 +78,6 @@ public class AdminUser extends User
                 String Query = "Delete from User1.UserTbl where UID="+String.valueOf(UId);
                 Statement Delete = Con.createStatement();
                 Delete.executeUpdate(Query);
-
-                /*JOptionPane.showMessageDialog(this, "User Deleted"); //Added Msg
-                DisplayUsers(); //refresh the Users Table - add the new user
-                Reset(); // resert cells after added user*/
         }
         catch (Exception e) 
         {
@@ -93,4 +89,22 @@ public class AdminUser extends User
 
  
             
+    public boolean EditSellerAcc(SellerUser Seller)
+    {
+        Connection Con = null; //DB 
+        
+        try
+        {
+        Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+        String UId = String.valueOf(Seller.getSeller().getID());
+        String Query = "Update User1.UserTbl set UName='"+Seller.getUserName()+"',UPhone='"+Seller.getSeller().getPhone()+"',UAddress='"+Seller.getSeller().getAddress()+"',UPassword='"+Seller.getPassword()+"' where UID="+UId;
+        Statement Delete = Con.createStatement();
+        Delete.executeUpdate(Query);
+        }
+        catch (Exception e) 
+        {
+                e.printStackTrace();
+        }
+        return true;
+    }
 }

@@ -571,19 +571,8 @@ public class Users extends javax.swing.JFrame {
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(this, "ERROR with User Deleted");
+                    JOptionPane.showMessageDialog(this, "ERROR with User Delet");
                 }
-                
-                
-                /*Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                String UId = UIdTb.getText();
-                String Query = "Delete from User1.UserTbl where UID="+UId;
-                Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);*/
-                    
-                /*JOptionPane.showMessageDialog(this, "User Deleted"); //Added Msg
-                DisplayUsers(); //refresh the Users Table - add the new user
-                Reset(); // resert cells after added user*/
             } 
             catch (Exception e) 
             {
@@ -603,14 +592,28 @@ public class Users extends javax.swing.JFrame {
         {
             try 
             {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                String UId = UIdTb.getText();
-                String Query = "Update User1.UserTbl set UName='"+UNameTb.getText()+"',UPhone='"+PhoneTb.getText()+"',UAddress='"+AddressTb.getText()+"',UPassword='"+PasswordTb.getText()+"' where UID="+UId;
-                Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this, "User Updated"); //Added Msg
-                DisplayUsers(); //refresh the Books Table - add the new book
-                Reset(); // resert cells after added book
+                String UserName = UNameTb.getText();
+                String Password = PasswordTb.getText();
+                int ID = Integer.valueOf(UIdTb.getText());
+                String Phone = PhoneTb.getText();
+                String Address = AddressTb.getText();
+                
+                ManageSellerAccount sellerManage = new ManageSellerAccount(ID,  Phone,  Address);
+                SellerUser Seller = new SellerUser(sellerManage, UserName, Password);
+                boolean permmision = false;
+                AdminUser Admin = new AdminUser("Admin", "Password");
+                permmision = Admin.EditSellerAcc(Seller);
+
+                if (permmision == true)
+                {
+                    JOptionPane.showMessageDialog(this, "User Updated"); //Added Msg
+                    DisplayUsers(); //refresh the Books Table - add the new book
+                    Reset(); // resert cells after added book
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "ERROR with User Edit");
+                }
             } 
             catch (Exception e) 
             {
