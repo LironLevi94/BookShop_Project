@@ -145,7 +145,7 @@ public class AdminUser extends User
             Statement Delete = Con.createStatement();
             
             Inventory newInventory = new Inventory();
-            newInventory.DeleteFromInventory(newBook, Query, Delete); 
+            newInventory.UpdateTheInventory(newBook, Query, Delete); 
         }
         catch (Exception e) 
         {
@@ -166,7 +166,7 @@ public class AdminUser extends User
             Statement Delete = Con.createStatement();
             
             Inventory newInventory = new Inventory();
-            newInventory.UpdateFromInventory(newBook, Query, Delete); 
+            newInventory.UpdateTheInventory(newBook, Query, Delete); 
         }
         catch (Exception e) 
         {

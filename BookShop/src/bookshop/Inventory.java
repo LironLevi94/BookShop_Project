@@ -35,7 +35,7 @@ public class Inventory implements Serializable
         }
     }
     
-    public void DeleteFromInventory(Book newBook, String Query, Statement Delete) //Delete Book
+    public void UpdateTheInventory(Book newBook, String Query, Statement Delete) //Delete Book
     {     
         try
         {
@@ -47,16 +47,5 @@ public class Inventory implements Serializable
         }
     }
     
-    public void UpdateFromInventory(Book newBook, String Query, Statement Delete) //Update Book
-    {    
-        try
-        {
-            Delete.executeUpdate(Query);
-        }
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-        }
-    }
         
 }
