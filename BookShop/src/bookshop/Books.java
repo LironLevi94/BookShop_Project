@@ -536,19 +536,6 @@ public class Books extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(this, "ERROR with Book Add");
                 }
-                
-                /*Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                PreparedStatement add = Con.prepareStatement("insert into BookTbl values(?,?,?,?,?,?)");
-                add.setInt(1, Integer.valueOf(BookIdTb.getText())); // add ID
-                add.setString(2, NameTb.getText()); // add Title
-                add.setString(3, AuthorTb.getText()); // add Author
-                add.setString(4, CatCb.getSelectedItem().toString()); // add Category
-                add.setInt(5, Integer.valueOf(QuantityTb.getText())); // add Quantity
-                add.setInt(6, Integer.valueOf(PriceTb.getText())); // add Price
-                int row = add.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Book Added"); //Added Msg
-                DisplayBooks(); //refresh the Books Table - add the new book
-                Reset(); // resert cells after added book*/
             } 
             catch (Exception e) 
             {
@@ -572,14 +559,23 @@ public class Books extends javax.swing.JFrame {
         {
             try 
             {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                String BId = BookIdTb.getText();
-                String Query = "Delete from User1.BookTbl where BID="+BId;
-                Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this, "Book Deleted"); //Added Msg
-                DisplayBooks(); //refresh the Books Table - add the new book
-                Reset(); // resert cells after added book
+                int ID = Integer.valueOf(BookIdTb.getText());
+                
+                Book newBook = new Book(null, null, null, ID, 0, 0);
+                boolean permmision = false;
+                AdminUser Admin = new AdminUser("Admin", "Password");
+                permmision = Admin.DeleteBook(newBook);
+                
+                if (permmision == true)
+                {
+                    JOptionPane.showMessageDialog(this, "Book Deleted"); //Added Msg
+                    DisplayBooks(); //refresh the Books Table - add the new book
+                    Reset(); // resert cells after added book
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "ERROR with Book Add");
+                }
             } 
             catch (Exception e) 
             {
@@ -610,14 +606,28 @@ public class Books extends javax.swing.JFrame {
         {
             try 
             {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                String BId = BookIdTb.getText();
-                String Query = "Update User1.BookTbl set Title='"+NameTb.getText()+"',Author='"+AuthorTb.getText()+"',Category='"+CatCb.getSelectedItem()+"',Quantity="+QuantityTb.getText()+",Price="+PriceTb.getText()+" where BID="+BId;
-                Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this, "Book Updated"); //Added Msg
-                DisplayBooks(); //refresh the Books Table - add the new book
-                Reset(); // resert cells after added book
+                String Title = NameTb.getText();
+                String Author = AuthorTb.getText();
+                int ID = Integer.valueOf(BookIdTb.getText());
+                String Category = CatCb.getSelectedItem().toString();
+                int Quantity = Integer.valueOf(QuantityTb.getText());
+                int Price = Integer.valueOf(PriceTb.getText());
+
+                Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
+                boolean permmision = false;
+                AdminUser Admin = new AdminUser("Admin", "Password");
+                permmision = Admin.EditBook(newBook);
+
+                if (permmision == true)
+                {
+                    JOptionPane.showMessageDialog(this, "Book Updated"); //Added Msg
+                    DisplayBooks(); //refresh the Books Table - add the new book
+                    Reset(); // resert cells after added book
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "ERROR with Book Add");
+                }
             } 
             catch (Exception e) 
             {

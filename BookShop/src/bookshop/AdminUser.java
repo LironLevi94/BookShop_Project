@@ -114,19 +114,55 @@ public class AdminUser extends User
         Connection Con = null; //DB 
         try
         {
-        Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                PreparedStatement add = Con.prepareStatement("insert into BookTbl values(?,?,?,?,?,?)");
-                add.setInt(1, newBook.getID()); // add ID
-                add.setString(2, newBook.getTitle()); // add Title
-                add.setString(3, newBook.getAuthor()); // add Author
-                add.setString(4, newBook.getCategory()); // add Category//
-                add.setInt(5, newBook.getQuantity()); // add Quantity
-                add.setInt(6, newBook.getPrice()); // add Price
-                int row = add.executeUpdate();
+            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+            PreparedStatement add = Con.prepareStatement("insert into BookTbl values(?,?,?,?,?,?)");
+            add.setInt(1, newBook.getID()); // add ID
+            add.setString(2, newBook.getTitle()); // add Title
+            add.setString(3, newBook.getAuthor()); // add Author
+            add.setString(4, newBook.getCategory()); // add Category//
+            add.setInt(5, newBook.getQuantity()); // add Quantity
+            add.setInt(6, newBook.getPrice()); // add Price
+            int row = add.executeUpdate();
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
+    public boolean DeleteBook(Book newBook)
+    {
+        Connection Con = null; //DB 
+        try
+        {
+            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+            String BId = String.valueOf(newBook.getID());
+            String Query = "Delete from User1.BookTbl where BID="+BId;
+            Statement Delete = Con.createStatement();
+            Delete.executeUpdate(Query);
         }
         catch (Exception e) 
         {
                 e.printStackTrace();
+        }
+        return true;
+    }
+    
+    public boolean EditBook(Book newBook)
+    {
+        Connection Con = null; //DB 
+        try
+        {
+            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
+            String BId = String.valueOf(newBook.getID());
+            String Query = "Update User1.BookTbl set Title='"+newBook.getTitle()+"',Author='"+newBook.getAuthor()+"',Category='"+newBook.getCategory()+"',Quantity="+newBook.getQuantity()+",Price="+newBook.getPrice()+" where BID="+BId;
+            Statement Delete = Con.createStatement();
+            Delete.executeUpdate(Query);
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
         }
         return true;
     }
