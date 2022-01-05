@@ -232,7 +232,7 @@ public class Login extends javax.swing.JFrame {
             String UserName = UNameTb.getText();
             String Password = PasswordTb.getText();
             
-            ManageSellerAccount sellerManage = new ManageSellerAccount(0,  null,  null);
+            ManageSellerAccount sellerManage = new ManageSellerAccount(0,  "0",  "0");
             
             SellerUser Seller = new SellerUser(sellerManage, UserName, Password);
             boolean permmision = false;

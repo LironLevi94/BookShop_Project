@@ -52,100 +52,100 @@ public class AdminUserTest {
         {
             fail("The results are not equal.");
         }*/
-            
-        assertEquals("should be true" ,expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        
+        //check True
+        assertEquals("the result should be true!" ,expResult, result);
+        assertTrue("the result should be true!", result);
+        
+        //check False
+        AdminUser AdminAcc2 = new AdminUser("Admin", "1234");
+        boolean expResult2 = false;
+        boolean result2 = instance.LoginAdmin(AdminAcc2);
+        assertEquals("the result should be false!" ,expResult, result);
+        assertFalse("the result should be false!", result2);
     }
 
     /**
      * Test of addNewSellerAcc method, of class AdminUser.
      */
-    /*@Test
+    @Test
     public void testAddNewSellerAcc() {
         System.out.println("addNewSellerAcc");
-        SellerUser Seller = null;
-        AdminUser instance = null;
-        boolean expResult = false;
+        ManageSellerAccount sellerManage = new ManageSellerAccount(0,  "0",  "0");
+        SellerUser Seller = new SellerUser(sellerManage, "Bar", "1234");
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
         boolean result = instance.addNewSellerAcc(Seller);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        assertEquals("the result should be true!", expResult, result);
+
+    }
 
     /**
      * Test of DeleteSellerAcc method, of class AdminUser.
      */
-    /*@Test
+    @Test
     public void testDeleteSellerAcc() {
         System.out.println("DeleteSellerAcc");
-        SellerUser Seller = null;
-        AdminUser instance = null;
-        boolean expResult = false;
+        ManageSellerAccount sellerManage = new ManageSellerAccount(0,  "0",  "0");
+        SellerUser Seller = new SellerUser(sellerManage, "Bar", "1234");
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
         boolean result = instance.DeleteSellerAcc(Seller);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        assertEquals("the result should be true!", expResult, result);
+    }
 
     /**
      * Test of EditSellerAcc method, of class AdminUser.
      */
-    /*@Test
+    @Test
     public void testEditSellerAcc() {
         System.out.println("EditSellerAcc");
-        SellerUser Seller = null;
-        AdminUser instance = null;
-        boolean expResult = false;
+        ManageSellerAccount sellerManage = new ManageSellerAccount(0,  "0",  "0");
+        SellerUser Seller = new SellerUser(sellerManage, "Bar", "1234");
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
         boolean result = instance.EditSellerAcc(Seller);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        assertEquals("the result should be true!", expResult, result);
+    }
 
     /**
      * Test of AddBook method, of class AdminUser.
      */
-    /*@Test
+    @Test
     public void testAddBook() {
         System.out.println("AddBook");
-        Book newBook = null;
-        AdminUser instance = null;
-        boolean expResult = false;
+        Book newBook = new Book("testBook", "testing", "Journal", 18, 12, 100);
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
         boolean result = instance.AddBook(newBook);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        assertEquals("the result should be true!",expResult, result);
+    }
 
     /**
      * Test of DeleteBook method, of class AdminUser.
      */
-    /*@Test
+    @Test
     public void testDeleteBook() {
         System.out.println("DeleteBook");
-        Book newBook = null;
-        AdminUser instance = null;
-        boolean expResult = false;
+        Book newBook = new Book("testBook2", "testing2", "Journal", 19, 12, 100);
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
         boolean result = instance.DeleteBook(newBook);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        assertEquals("the result should be true!",expResult, result);
+        
+    }
 
     /**
      * Test of EditBook method, of class AdminUser.
      */
-    /*@Test
+    @Test
     public void testEditBook() {
         System.out.println("EditBook");
-        Book newBook = null;
-        AdminUser instance = null;
-        boolean expResult = false;
+        Book newBook = new Book("testBook2", "testing3", "Journal", 19, 12, 100);
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
         boolean result = instance.EditBook(newBook);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        assertEquals("the result should be true!",expResult, result);
+    }
     
 }
