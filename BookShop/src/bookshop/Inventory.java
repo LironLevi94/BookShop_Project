@@ -35,7 +35,7 @@ public class Inventory implements Serializable
         }
     }
     
-    public void UpdateTheInventory(Book newBook, String Query, Statement Delete) //Delete Book
+    public void UpdateTheInventory(Book newBook, String Query, Statement Delete) //Update Book
     {     
         try
         {

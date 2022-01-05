@@ -27,28 +27,14 @@ public class ManageSellerAccount implements Serializable
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
     public String getPhone() {
         return Phone;
     }
 
-    public void setPhone(String Phone) {
-        this.Phone = Phone;
-    }
 
     public String getAddress() {
         return Address;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
-
-
-    
     
 }
