@@ -36,15 +36,21 @@ public class AdminUser extends User
             }
     }
     
+    /*System.out.println("LoginAdmin");
+        AdminUser AdminAcc = new AdminUser("Admin", "Password");
+        AdminUser instance = new AdminUser("Admin", "Password");
+        boolean expResult = true;
+        boolean result = instance.LoginAdmin(AdminAcc);
+        System.out.println(result);
+        System.out.println(expResult);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");*/
+    
     
     public boolean addNewSellerAcc(SellerUser Seller) // Add Seller
     {
         Connection Con = null; //DB 
-        /*Seller.getUserName();
-        Seller.getPassword();
-        Seller.getSeller().getID();
-        Seller.getSeller().getPhone();
-        Seller.getSeller().getAddress();*/
 
         try
         {
