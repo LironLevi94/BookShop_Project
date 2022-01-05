@@ -48,12 +48,12 @@ public class AdminUserTest {
         boolean result = instance.LoginAdmin(AdminAcc);
         System.out.println(result);
         System.out.println(expResult);
-        if(result != expResult)
+        /*if(result != expResult)
         {
             fail("The results are not equal.");
-        }
+        }*/
             
-        //assertEquals(expResult, result);
+        assertEquals("should be true" ,expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
