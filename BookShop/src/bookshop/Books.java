@@ -546,7 +546,7 @@ public class Books extends javax.swing.JFrame {
                 //Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
                 boolean permmision = false;
                 AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.AddBook(newBook, Category);
+                permmision = Admin.AddBook(newBook);
 
                 if (permmision == true)
                 {
@@ -583,7 +583,7 @@ public class Books extends javax.swing.JFrame {
             {
                 int ID = Integer.valueOf(BookIdTb.getText());
                 
-                Book newBook = new Book(null, null, ID, 0, 0);
+                Book newBook = new Book(null, null, null, ID, 0, 0);
                 boolean permmision = false;
                 AdminUser Admin = new AdminUser("Admin", "Password");
                 permmision = Admin.DeleteBook(newBook);
@@ -661,7 +661,7 @@ public class Books extends javax.swing.JFrame {
                 //Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
                 boolean permmision = false;
                 AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.EditBook(newBook, Category);
+                permmision = Admin.EditBook(newBook);
 
                 if (permmision == true)
                 {

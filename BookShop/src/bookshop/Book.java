@@ -32,8 +32,8 @@ public class Book extends Product
         return Author;
     }
 
-    /*public String getCategory() {
+   public String getCategory() {
         return Category;
-    }*/
+    }
 
 }
