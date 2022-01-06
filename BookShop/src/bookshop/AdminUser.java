@@ -104,7 +104,7 @@ public class AdminUser extends User
     }
     
     
-    public boolean AddBook(Book newBook)
+    public boolean AddBook(Book newBook, String Category)
     {
         Connection Con = null; //DB 
         try
@@ -114,7 +114,7 @@ public class AdminUser extends User
             add.setInt(1, newBook.getID()); // add ID
             add.setString(2, newBook.getTitle()); // add Title
             add.setString(3, newBook.getAuthor()); // add Author
-            add.setString(4, newBook.getCategory()); // add Category//
+            add.setString(4, Category); // add Category//
             add.setInt(5, newBook.getQuantity()); // add Quantity
             add.setInt(6, newBook.getPrice()); // add Price
             
@@ -149,14 +149,14 @@ public class AdminUser extends User
         return true;
     }
     
-    public boolean EditBook(Book newBook)
+    public boolean EditBook(Book newBook, String Category)
     {
         Connection Con = null; //DB 
         try
         {
             Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
             String BId = String.valueOf(newBook.getID());
-            String Query = "Update User1.BookTbl set Title='"+newBook.getTitle()+"',Author='"+newBook.getAuthor()+"',Category='"+newBook.getCategory()+"',Quantity="+newBook.getQuantity()+",Price="+newBook.getPrice()+" where BID="+BId;
+            String Query = "Update User1.BookTbl set Title='"+newBook.getTitle()+"',Author='"+newBook.getAuthor()+"',Category='"+Category+"',Quantity="+newBook.getQuantity()+",Price="+newBook.getPrice()+" where BID="+BId;
             
             Statement Delete = Con.createStatement();
             
