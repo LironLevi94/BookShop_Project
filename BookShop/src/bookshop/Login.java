@@ -267,7 +267,7 @@ public class Login extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "Contact the Admin"); //Added Msg
+                JOptionPane.showMessageDialog(this, "Wrong User Name or Password"); //Added Msg
                 UNameTb.setText("");
                 PasswordTb.setText("");
             }

@@ -43,9 +43,9 @@ public class BillTest {
     public void testBillNum() {
         System.out.println("BillNum");
         Bill instance = new Bill();
-        int expResult = 12;
+        int expResult = 18;
         int result = instance.BillNum();
-        assertEquals("the result should be 12!" ,expResult, result);
+        assertEquals("the result should be 18!" ,expResult, result); //check the num of line in the BILL DB
     }
     
 }

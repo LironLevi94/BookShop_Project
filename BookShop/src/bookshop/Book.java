@@ -12,13 +12,13 @@ public class Book extends Product
 {
     protected String Title;
     protected String Author;
-    protected String Category;
+    //protected String Category;
 
-    public Book(String Title, String Author, String Category, int ID, int Price, int Quantity) {
+    public Book(String Title, String Author, int ID, int Price, int Quantity) {
         super(ID, Price, Quantity);
         this.Title = Title;
         this.Author = Author;
-        this.Category = Category;
+        //this.Category = Category;
     }
 
 
@@ -30,8 +30,8 @@ public class Book extends Product
         return Author;
     }
 
-    public String getCategory() {
+    /*public String getCategory() {
         return Category;
-    }
+    }*/
 
 }
