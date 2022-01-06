@@ -520,8 +520,30 @@ public class Books extends javax.swing.JFrame {
                 String Category = CatCb.getSelectedItem().toString();
                 int Quantity = Integer.valueOf(QuantityTb.getText());
                 int Price = Integer.valueOf(PriceTb.getText());
+                Book newBook = null;
+                
+                if(Category == "Journal")
+                {
+                    newBook = new Journal(Title, Author, Category, ID, Price, Quantity);
+                }
+                else if(Category == "Leisure")
+                {
+                    newBook = new Leisure(Title, Author, Category, ID, Price, Quantity);
+                }
+                else if(Category == "Newspaper")
+                {
+                    newBook = new Newspaper(Title, Author, Category, ID, Price, Quantity);
+                }
+                else if(Category == "Noval")
+                {
+                    newBook = new Noval(Title, Author, Category, ID, Price, Quantity);
+                }
+                else if(Category == "Magazine")
+                {
+                    newBook = new Magazine(Title, Author, Category, ID, Price, Quantity);
+                }
 
-                Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
+                //Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
                 boolean permmision = false;
                 AdminUser Admin = new AdminUser("Admin", "Password");
                 permmision = Admin.AddBook(newBook);
