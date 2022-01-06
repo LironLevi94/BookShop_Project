@@ -10,14 +10,10 @@ package bookshop;
  */
 public class Journal extends Book
 {
-    private String Category;
 
-    public Journal(String Category, String Title, String Author, int ID, int Price, int Quantity) {
-        super(Title, Author, ID, Price, Quantity);
-        this.Category = "Journal";
+    public Journal(String Title, String Author, String Category, int ID, int Price, int Quantity) {
+        super(Title, Author, "Journal", ID, Price, Quantity);
+        System.out.println("new Journal");
     }
 
-    public String getCategory() {
-        return Category;
-    }
 }

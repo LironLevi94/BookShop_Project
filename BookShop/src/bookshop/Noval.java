@@ -10,16 +10,8 @@ package bookshop;
  */
 public class Noval extends Book
 {
-    private String Category;
-
-    public Noval(String Category, String Title, String Author, int ID, int Price, int Quantity) {
-        super(Title, Author, ID, Price, Quantity);
-        this.Category = "Noval";
+    public Noval(String Title, String Author, String Category, int ID, int Price, int Quantity) {
+        super(Title, Author, "Noval", ID, Price, Quantity);
+        System.out.println("new Noval");
     }
-
-    public String getCategory() {
-        return Category;
-    }
-
-    
 }

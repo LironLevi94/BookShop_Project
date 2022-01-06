@@ -10,15 +10,9 @@ package bookshop;
  */
 public class Leisure extends Book
 {
-    private String Category;
 
-    public Leisure(String Category, String Title, String Author, int ID, int Price, int Quantity) {
-        super(Title, Author, ID, Price, Quantity);
-        this.Category = "Leisure";
+    public Leisure(String Title, String Author, String Category, int ID, int Price, int Quantity) {
+        super(Title, Author, "Leisure", ID, Price, Quantity);
+        System.out.println("new Leisure");
     }
-
-    public String getCategory() {
-        return Category;
-    }
-
 }
