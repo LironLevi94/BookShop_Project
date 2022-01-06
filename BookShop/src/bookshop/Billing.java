@@ -548,15 +548,29 @@ public class Billing extends javax.swing.JFrame {
     
     //Print Button
     private void printBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printBtnMouseClicked
+        boolean noMissingData = false;
         try 
         {
-            BillTxt.print();
-            CountRow();
+            if(BillNumTb.getText().isEmpty() || ClientNameTb.getText().isEmpty())//Check if the fields are empty
+            {
+                JOptionPane.showMessageDialog(this, "Missing Information");//error msg
+            }
+            else
+            {
+                BillTxt.print();
+                CountRow();
+                noMissingData = true;
+            }
             
         } 
         catch (Exception e) {}
-        SaveBill();
-        Reset();
+        if(noMissingData == true)
+        {
+            SaveBill();
+            CountRow();
+            Reset();
+            
+        }
     }//GEN-LAST:event_printBtnMouseClicked
 
     Statement St1 = null; //DB 

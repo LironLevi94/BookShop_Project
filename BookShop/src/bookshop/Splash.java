@@ -113,6 +113,7 @@ public class Splash extends javax.swing.JFrame {
     //Upload the splach
     public static void main(String args[]) {
         Splash Mysplash = new Splash();
+
         Mysplash.setVisible(true);
         try 
         {
