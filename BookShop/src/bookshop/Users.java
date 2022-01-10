@@ -461,6 +461,7 @@ public class Users extends javax.swing.JFrame {
         }
     }
     
+    //reset cells
     private void Reset()
     {
         UIdTb.setText("");

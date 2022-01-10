@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class Inventory implements Serializable
 {
       
-    public void AddToInventory(PreparedStatement add, Book newBook) //AddBook//**fix array needed**
+    public void AddToInventory(PreparedStatement add, Book newBook) //AddBook
     {
         try
         {

@@ -36,7 +36,7 @@ public class SellerUser extends User
     }
     
     
-    public boolean LoginSeller(SellerUser SellerAcc) //Login As Admin Accout
+    public boolean LoginSeller(SellerUser SellerAcc) //Login As seller Account
     {
         //SQL functions //
         Connection Con = null; //DB 

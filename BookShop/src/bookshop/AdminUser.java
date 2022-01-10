@@ -24,7 +24,7 @@ public class AdminUser extends User
     }
 
     
-    public boolean LoginAdmin(AdminUser AdminAcc) //Login As Admin Accout
+    public boolean LoginAdmin(AdminUser AdminAcc) //Login As Admin Account
     {
         if(AdminAcc.getUserName().equals("Admin") && AdminAcc.getPassword().equals("Password")) //Admin accoount
             {
@@ -70,9 +70,9 @@ public class AdminUser extends User
         {
             Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
                 int UId = Seller.getSeller().getID();
-                String Query = "Delete from User1.UserTbl where UID="+String.valueOf(UId);
+                String Query = "Delete from User1.UserTbl where UID="+String.valueOf(UId);//update DB
                 Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);
+                Delete.executeUpdate(Query);//update DB
         }
         catch (Exception e) 
         {
@@ -92,9 +92,9 @@ public class AdminUser extends User
         {
         Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
         String UId = String.valueOf(Seller.getSeller().getID());
-        String Query = "Update User1.UserTbl set UName='"+Seller.getUserName()+"',UPhone='"+Seller.getSeller().getPhone()+"',UAddress='"+Seller.getSeller().getAddress()+"',UPassword='"+Seller.getPassword()+"' where UID="+UId;
+        String Query = "Update User1.UserTbl set UName='"+Seller.getUserName()+"',UPhone='"+Seller.getSeller().getPhone()+"',UAddress='"+Seller.getSeller().getAddress()+"',UPassword='"+Seller.getPassword()+"' where UID="+UId; //update DB
         Statement Delete = Con.createStatement();
-        Delete.executeUpdate(Query);
+        Delete.executeUpdate(Query);//update DB
         }
         catch (Exception e) 
         {
@@ -136,8 +136,8 @@ public class AdminUser extends User
         {
             Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
             String BId = String.valueOf(newBook.getID());
-            String Query = "Delete from User1.BookTbl where BID="+BId;
-            Statement Delete = Con.createStatement();
+            String Query = "Delete from User1.BookTbl where BID="+BId;//update DB
+            Statement Delete = Con.createStatement();//update DB
             
             Inventory newInventory = new Inventory();
             newInventory.UpdateTheInventory(newBook, Query, Delete); 
@@ -156,9 +156,9 @@ public class AdminUser extends User
         {
             Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
             String BId = String.valueOf(newBook.getID());
-            String Query = "Update User1.BookTbl set Title='"+newBook.getTitle()+"',Author='"+newBook.getAuthor()+"',Category='"+newBook.getCategory()+"',Quantity="+newBook.getQuantity()+",Price="+newBook.getPrice()+" where BID="+BId;
+            String Query = "Update User1.BookTbl set Title='"+newBook.getTitle()+"',Author='"+newBook.getAuthor()+"',Category='"+newBook.getCategory()+"',Quantity="+newBook.getQuantity()+",Price="+newBook.getPrice()+" where BID="+BId;//update DB
             
-            Statement Delete = Con.createStatement();
+            Statement Delete = Con.createStatement();//update DB
             
             Inventory newInventory = new Inventory();
             newInventory.UpdateTheInventory(newBook, Query, Delete); 

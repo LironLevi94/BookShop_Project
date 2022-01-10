@@ -19,7 +19,7 @@ import net.proteanit.sql.DbUtils;
 public class Bill implements Serializable
 {
     
-    public int BillNum()
+    public int BillNum() // added the bill num in the seller account
     {
         //SQL functions //
         Connection Con = null; //DB 

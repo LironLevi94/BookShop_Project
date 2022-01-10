@@ -35,7 +35,7 @@ public class ItemToBill implements Serializable
 
     public int AddBookToBill(ItemToBill Item)
     {
-        int Total = 0;// i = the index of the added book, Total = total price for each book
+        int Total = 0;// Total = total price for each book
         
         Total = Integer.valueOf(Item.getPrice())*Integer.valueOf(Item.getItemAmount()); //total for each book
 
