@@ -560,6 +560,7 @@ public class Billing extends javax.swing.JFrame {
                 BillTxt.print();
                 CountRow();
                 noMissingData = true;
+                n=0; 
             }
             
         } 
