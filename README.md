@@ -1,10 +1,10 @@
-### BookShop_Project
+### BookShop_Java_Project
 
 ------------------
 
 - You have to download the DataBases, then click on Services > JavaDB > BookShopOb > right-click > connect..
-- Download the Video to watch (you can watch the video [here](https://drive.google.com/file/d/18ZC9D8GZT7KPglAEfN79e2KkceKm-qsQ/view?usp=sharing) -> Google Drive).
-- PDF file with screenshots of the success of the Junit tests (NetBeans).
+- Download the Video to watch (or you can watch the video [here](https://drive.google.com/file/d/18ZC9D8GZT7KPglAEfN79e2KkceKm-qsQ/view?usp=sharing) -> Google Drive).
+- PDF file with screenshots of the Junit tests success (NetBeans).
 
 - **Admin Account:** 
 UserName: Admin,
