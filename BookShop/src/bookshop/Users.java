@@ -4,6 +4,7 @@
  */
 package bookshop;
 
+import static bookshop.AdminUser.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -490,8 +491,7 @@ public class Users extends javax.swing.JFrame {
                 ManageSellerAccount sellerManage = new ManageSellerAccount(ID,  Phone,  Address);
                 SellerUser Seller = new SellerUser(sellerManage, UserName, Password);
                 boolean permmision = false;
-                AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.addNewSellerAcc(Seller);
+                permmision = addNewSellerAcc(Seller);
 
                 if (permmision == true)
                 {
@@ -561,8 +561,7 @@ public class Users extends javax.swing.JFrame {
                 ManageSellerAccount sellerManage = new ManageSellerAccount(ID,  null,  null);
                 SellerUser Seller = new SellerUser(sellerManage, null, null);
                 boolean permmision = false;
-                AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.DeleteSellerAcc(Seller);
+                permmision = DeleteSellerAcc(Seller);
 
                 if (permmision == true)
                 {                    
@@ -602,8 +601,7 @@ public class Users extends javax.swing.JFrame {
                 ManageSellerAccount sellerManage = new ManageSellerAccount(ID,  Phone,  Address);
                 SellerUser Seller = new SellerUser(sellerManage, UserName, Password);
                 boolean permmision = false;
-                AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.EditSellerAcc(Seller);
+                permmision = EditSellerAcc(Seller);
 
                 if (permmision == true)
                 {

@@ -37,7 +37,7 @@ public class AdminUser extends User
     }
     
 
-    public boolean addNewSellerAcc(SellerUser Seller) // Add Seller
+    public static boolean addNewSellerAcc(SellerUser Seller) // Add Seller
     {
         Connection Con = null; //DB 
 
@@ -62,7 +62,7 @@ public class AdminUser extends User
     }
 
 
-    public boolean DeleteSellerAcc(SellerUser Seller)
+    public static boolean DeleteSellerAcc(SellerUser Seller)
     {
         Connection Con = null; //DB 
         
@@ -84,7 +84,7 @@ public class AdminUser extends User
 
  
             
-    public boolean EditSellerAcc(SellerUser Seller)
+    public static boolean EditSellerAcc(SellerUser Seller)
     {
         Connection Con = null; //DB 
         
@@ -104,7 +104,7 @@ public class AdminUser extends User
     }
     
     
-    public boolean AddBook(Book newBook)
+    public static boolean AddBook(Book newBook)
     {
         Connection Con = null; //DB 
         try
@@ -129,7 +129,7 @@ public class AdminUser extends User
         return true;
     }
     
-    public boolean DeleteBook(Book newBook)
+    public static boolean DeleteBook(Book newBook)
     {
         Connection Con = null; //DB 
         try
@@ -149,7 +149,7 @@ public class AdminUser extends User
         return true;
     }
     
-    public boolean EditBook(Book newBook)
+    public static boolean EditBook(Book newBook)
     {
         Connection Con = null; //DB 
         try

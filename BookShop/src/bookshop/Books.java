@@ -4,6 +4,7 @@
  */
 package bookshop;
 
+import static bookshop.AdminUser.*;
 import javax.swing.JOptionPane; //for the massages
 import java.sql.Connection; //to the DB connection
 import java.sql.*;
@@ -543,10 +544,8 @@ public class Books extends javax.swing.JFrame {
                     newBook = new Magazine(Title, Author, Category, ID, Price, Quantity);
                 }
 
-                //Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
                 boolean permmision = false;
-                AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.AddBook(newBook);
+                permmision = AddBook(newBook);
 
                 if (permmision == true)
                 {
@@ -585,8 +584,7 @@ public class Books extends javax.swing.JFrame {
                 
                 Book newBook = new Book(null, null, null, ID, 0, 0);
                 boolean permmision = false;
-                AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.DeleteBook(newBook);
+                permmision = DeleteBook(newBook);
                 
                 if (permmision == true)
                 {
@@ -658,10 +656,8 @@ public class Books extends javax.swing.JFrame {
                     newBook = new Magazine(Title, Author, Category, ID, Price, Quantity);
                 }
                 
-                //Book newBook = new Book(Title, Author, Category, ID, Price, Quantity);
                 boolean permmision = false;
-                AdminUser Admin = new AdminUser("Admin", "Password");
-                permmision = Admin.EditBook(newBook);
+                permmision = EditBook(newBook);
 
                 if (permmision == true)
                 {
