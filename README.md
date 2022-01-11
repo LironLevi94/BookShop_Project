@@ -1,4 +1,6 @@
 ### BookShop_Java_Project
+Liron Levi, ID: 312409592.\
+Adi Dereviani, ID: 305674731.
 
 ------------------
 
