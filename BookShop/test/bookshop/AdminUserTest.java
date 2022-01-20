@@ -48,11 +48,6 @@ public class AdminUserTest {
         boolean result = instance.LoginAdmin(AdminAcc);
         System.out.println(result);
         System.out.println(expResult);
-        /*if(result != expResult)
-        {
-            fail("The results are not equal.");
-        }*/
-        
         //check True
         assertEquals("the result should be true!" ,expResult, result);
         assertTrue("the result should be true!", result);

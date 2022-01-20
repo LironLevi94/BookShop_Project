@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
@@ -480,14 +481,13 @@ public class Billing extends javax.swing.JFrame {
         GrdTotalLbl.setText("");
     }
     
-    int BId, n = 0;
-    int StockArr[] = new int [50];
-    int IdArr[] = new int [50];
+    int BId;
+    ArrayList<Integer> StockArr = new ArrayList<Integer>(); //save the stock num of the selected book
+    ArrayList<Integer> IdArr = new ArrayList<Integer>(); //save the id of the selected book
     private void UpdateBook()
     {
-        StockArr[n] = Stock;
-        IdArr[n] = BId;
-        n +=1;
+        StockArr.add(Stock);
+        IdArr.add(BId);
         
         int newQty = Stock - Integer.valueOf(QtyTb.getText());
         try 
@@ -560,7 +560,8 @@ public class Billing extends javax.swing.JFrame {
                 BillTxt.print();
                 CountRow();
                 noMissingData = true;
-                n=0; 
+                StockArr.clear(); 
+                IdArr.clear();
             }
             
         } 
@@ -599,13 +600,14 @@ public class Billing extends javax.swing.JFrame {
         try 
             {
                 Con = DriverManager.getConnection("jdbc:derby://localhost:1527/BookShopOb", "User1", "12345"); // connect to the DB
-                for( k = n ; k >= 0 ; k--) //return the Original Stocks before add to bill
+                for( k = 0; k < StockArr.size(); k++) //return the Original Stocks before add to bill
                 {
-                String Query = "Update User1.BookTbl set Quantity="+String.valueOf(StockArr[k])+" where BID="+String.valueOf(IdArr[k]);
-                Statement Delete = Con.createStatement();
-                Delete.executeUpdate(Query);
+                    String Query = "Update User1.BookTbl set Quantity="+String.valueOf(StockArr.get(k))+" where BID="+String.valueOf(IdArr.get(k));
+                    Statement Delete = Con.createStatement();
+                    Delete.executeUpdate(Query);
                 }
-                n = 0;
+                StockArr.clear(); 
+                IdArr.clear();
                 JOptionPane.showMessageDialog(this, "Books Stocks Updated"); //Added Msg
                 DisplayBooks(); //refresh the Books Table - add the new book
             } 
