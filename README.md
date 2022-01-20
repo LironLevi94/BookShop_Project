@@ -10,11 +10,11 @@ Adi Dereviani, ID: 305674731.
 
 - **Admin Account:** 
 UserName: Admin,
-Password: Password.
+Password: Password
 
 - **Seller Account:**
 UserName: Keren,
-Password: 1512.
+Password: 1512
 
 note: You can see more sellers accounts through the admin account - in the "Sellers Accounts" Management tab.
 
